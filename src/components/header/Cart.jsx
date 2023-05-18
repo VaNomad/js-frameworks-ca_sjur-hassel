@@ -3,7 +3,7 @@ import { BsBag } from "react-icons/bs";
 export default function Cart() {
   return (
     <div>
-      <BsBag />
+      <BsBag size={25}/>
     </div>
   )
 }

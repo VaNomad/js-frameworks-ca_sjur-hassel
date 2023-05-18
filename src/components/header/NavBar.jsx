@@ -10,7 +10,7 @@ export default function NavBar() {
           <ul>
             <li>
               <NavLink
-                to="/Home"
+                to="/"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 Home
@@ -18,26 +18,18 @@ export default function NavBar() {
             </li>
             <li>
               <NavLink
-                to="Home"
+                to="/contact"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Home
+                Contact
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="Home"
+                to="/checkout"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="Home"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Home
+                Checkout
               </NavLink>
             </li>
           </ul>
@@ -45,11 +37,13 @@ export default function NavBar() {
         {/* Right Box */}
         <div>
           <div>
-            <Cart />
+            <Link to="/checkout">
+              <Cart />
+            </Link>
           </div>
           {/* Logo */}
           <div>
-            <Link>
+            <Link to={"/"}>
               <h1>Vespera</h1>
             </Link>
           </div>
