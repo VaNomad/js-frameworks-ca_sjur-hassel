@@ -4,10 +4,10 @@ import Cart from "./Cart"
 export default function NavBar() {
   return (
     <>
-      <nav>
+      <nav className="flex justify-between p-3 h-[130px]">
         {/* Left Box */}
-        <div>
-          <ul>
+        <div className="h-full">
+          <ul className="flex flex-col h-full justify-between">
             <li>
               <NavLink
                 to="/"
@@ -35,8 +35,8 @@ export default function NavBar() {
           </ul>
         </div>
         {/* Right Box */}
-        <div>
-          <div>
+        <div className="flex flex-col h-full justify-between">
+          <div className="flex justify-end">
             <Link to="/checkout">
               <Cart />
             </Link>
@@ -44,7 +44,9 @@ export default function NavBar() {
           {/* Logo */}
           <div>
             <Link to={"/"}>
-              <h1>Vespera</h1>
+              <h1 className="text-2xl uppercase font-exa font-black tracking-wider bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text text-transparent">
+                Vespera
+              </h1>
             </Link>
           </div>
         </div>
