@@ -15,6 +15,7 @@ export default function Home() {
     <div className="h-screen flex flex-col items-center text-black">
       <h1 className=" text-4xl font-bold">Home Page</h1>
       <div className="text-xl">{ '<' } searchbar placeholder { '>' }</div>
+      <ProductList products={products} title="All Products" />
       <ProductList products={products} />
       {/* <Card /> */}
     </div>
