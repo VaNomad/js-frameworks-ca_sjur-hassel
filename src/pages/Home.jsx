@@ -16,7 +16,7 @@ export default function Home() {
       <h1 className=" text-4xl font-bold">Home Page</h1>
       <div className="text-xl">{ '<' } searchbar placeholder { '>' }</div>
       <ProductList products={products} title="All Products" />
-      <ProductList products={products} />
+      <ProductList products={products} title="Cicci's Products" />
       {/* <Card /> */}
     </div>
   );
