@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import ProductList from "../components/ProductList";
 import Card from "../components/Card";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
