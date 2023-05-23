@@ -1,12 +1,12 @@
 import Header from "./header/Header";
-import ProductList from "./ProductList";
+import Items from "./Items";
 import Footer from "./footer";
 
 export default function Layout() {
   return (
     <>
       <Header />
-      <ProductList />
+      <Items />
       <Footer />
     </>
   )

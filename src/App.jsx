@@ -6,7 +6,7 @@ import NavBar from "./components/header/NavBar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import CheckOut from "./pages/CheckOut";
-import Product from "./pages/Product";
+import Details from "./pages/Details";
 // Router
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         element: <CheckOut />,
       },
       {
-        path: "/product/:id",
-        element: <Product />,
+        path: "/details/:id",
+        element: <Details />,
       },
     ],
   },
