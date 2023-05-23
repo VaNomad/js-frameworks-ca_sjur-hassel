@@ -34,10 +34,6 @@ export default function Home() {
   { isLoading && <Spinner /> }
   {isError && <LoadErr />}
 
-  console.log(<Spinner />)
-  console.log(products);
-
-
   return (
     <div className="h-screen flex flex-col items-center text-black">
       <h1 className=" text-4xl font-bold">Home Page</h1>
@@ -49,10 +45,3 @@ export default function Home() {
   );
 }
 
-
-{
-  /* <ProductList products={products.filter((product) => product.author === 'Cicci')} title="Cicci's Products" /> */
-}
-{
-  /* <ProductList products={products} title="All Products" /> */
-}
