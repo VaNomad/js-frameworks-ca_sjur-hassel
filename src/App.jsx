@@ -6,6 +6,7 @@ import NavBar from "./components/header/NavBar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import CheckOut from "./pages/CheckOut";
+import Product from "./pages/Product";
 // Router
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <CheckOut />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
     ],
   },
