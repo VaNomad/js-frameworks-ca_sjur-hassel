@@ -1,25 +1,40 @@
-// import Card from "../components/Card";
-
 import { useState, useEffect } from "react";
 // import ProductList from "../components/ProductList";
 import Card from "../components/Card";
+import Spinner from "../utils/Spinner";
+import LoadErr from "../utils/LoadErr";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch(url);
-      const json = await response.json();
+      try {
+        setIsError(false);
+        setIsLoading(true);
 
-      setProducts(json);
+        const response = await fetch(url);
+        const json = await response.json();
+        setProducts(json);
+
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setIsError(true);
+      }
     }
     getData();
     
   }, []);
 
+  { isLoading && <Spinner /> }
+  {isError && <LoadErr />}
+
+  console.log(<Spinner />)
   console.log(products);
 
 
