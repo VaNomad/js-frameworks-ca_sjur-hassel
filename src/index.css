@@ -8,7 +8,7 @@
 
 /* Cards —————————————————————————————————————————— */
 .card-zoom {
-  @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl w-60 h-60 rounded-2xl;
+  @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl shadow-gray-300 w-60 h-60 rounded-xl border-gray-300 border-[1px];
 }
 
 .card-zoom:hover .card-zoom-image {
@@ -16,7 +16,7 @@
 }
 
 .card-zoom-image {
-  @apply absolute w-full h-full transition-all duration-500 ease-in-out transform bg-center bg-cover;
+  @apply absolute w-full h-[-100px] transition-all duration-500 ease-in-out transform bg-cover;
 }
 
 .card-zoom-text {
@@ -24,7 +24,7 @@
 }
 
 .card-zoom:hover .card-zoom-text {
-  @apply scale-50 text-black opacity-100 bg-white bg-opacity-90 rounded-md py-2 px-3;
+  @apply scale-50 text-white opacity-100 bg-black rounded-xl py-[30px] px-[50px];
 }
 
 /* Navigation —————————————————————————————————————————— */
