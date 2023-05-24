@@ -8,7 +8,8 @@ export default function Details() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const { id } = useParams();
+  let { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     async function getData() {
@@ -38,17 +39,20 @@ export default function Details() {
 
   {isLoading && <Spinner />}
   {!data && <Spinner />}
-  {isError && <LoadErr />}
+  { isError && <LoadErr />; }
+  
+  const { title, imageUrl, description, price, discountedPrice } = data;
 
-  const { title, description, price, discountedPrice, imageUrl } = data;
 
   return (
     <div>
-      <div>Title: {title}</div>
-      <div>Image: <img src={imageUrl} alt={title} /></div>
-      <div>Description: {description}</div>
-      <div>Price: {price}</div>
-      <div>Discounted Price: {discountedPrice}</div>
+      <div>{title}</div>
+      <div className="h-[400px] w-[400px] bg-cover">
+        <img src={ imageUrl } alt={ title } />
+      </div>
+      <div>{description}</div>
+      <div>{price}</div>
+      <div>{discountedPrice}</div>
     </div>
   );
 }
