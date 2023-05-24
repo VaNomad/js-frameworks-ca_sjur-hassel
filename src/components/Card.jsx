@@ -8,18 +8,15 @@ export default function Card({ products, title }) {
       </h2>
       <div className="">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-9 justify-center items-center text-black mb-8">
-          {products.map(({id, title, imageUrl}) => (
-            <div
-              className="card-zoom flex flex-col justify-center items-center text-center p-4 border border-gray-400 w-full h-full m-3"
-              key={id}
-            >
-              <Link to={`/details/${id}`}>
+          {products.map(({ id, title, imageUrl }) => (
+            <Link to={`/details/${id}`} key={id}>
+              <div className="card-zoom flex flex-col justify-center items-center text-center p-4 border border-gray-400 w-full h-full m-3">
                 <div className="card-zoom-image">
                   <img src={imageUrl} alt={title} />
                 </div>
-              </Link>
-              <h2 className="card-zoom-text font-bold">{title}</h2>
-            </div>
+                <h2 className="card-zoom-text font-bold">{title}</h2>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
