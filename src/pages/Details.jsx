@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
+import { MdArrowBack } from "react-icons/md";
 
 export default function Details() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const navigate = useNavigate();
 
   let { id } = useParams();
   console.log(id);
@@ -41,18 +43,23 @@ export default function Details() {
   
   const { title, imageUrl, description, price, discountedPrice } = data;
 
-  console.log(data)
-
-
   return (
-    <div>
-      <div>{title}</div>
-      <div className="h-[400px] w-[400px] bg-cover">
-        <img src={ imageUrl } alt={ title } />
+    <div className="flex flex-col sm:flex-row">
+      <div className="">
+        <div className="flex items-center justify-between">
+          <MdArrowBack onClick={() => navigate(-1)} size={30} className="w-1/4 cursor-pointer" />
+          <h2 className="text-center mb-2 font-semibold uppercase bg-black text-white py-2 px-6">
+            Item Details
+          </h2>
+        </div>
+        <img src={imageUrl} alt={title} />
       </div>
-      <div>{description}</div>
-      <div>{price}</div>
-      <div>{discountedPrice}</div>
+      <div className="">
+        <h1>{title}</h1>
+        <div>{description}</div>
+        <div>{price}</div>
+        <div>{discountedPrice}</div>
+      </div>
     </div>
   );
 }
