@@ -10,8 +10,10 @@ export default function SearchBar() {
               type="text"
               className="block w-full flex-1 py-2 px-3 focus:outline-none"
             />
-            <span className="m-1 inline-flex cursor-pointer items-center rounded bg-violet-800 hover:bg-fuchsia-600
-             p-2 transition-all duration-200">
+            <span
+              className="m-1  p-2 inline-flex cursor-pointer items-center rounded bg-green-600 hover:bg-fuchsia-600
+             hover:scale-105 transition-all duration-200"
+            >
               <BsSearch size={25} color="white" />
             </span>
           </div>
