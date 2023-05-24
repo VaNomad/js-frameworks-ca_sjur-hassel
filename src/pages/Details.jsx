@@ -35,13 +35,13 @@ export default function Details() {
     getData();
   }, [id]);
 
-  console.log(data)
-
-  {isLoading && <Spinner />}
-  {!data && <Spinner />}
-  { isError && <LoadErr />; }
+  if (isLoading) return <Spinner />;
+  if (!data) return <Spinner />;
+  if (isError) return <LoadErr />;
   
   const { title, imageUrl, description, price, discountedPrice } = data;
+
+  console.log(data)
 
 
   return (

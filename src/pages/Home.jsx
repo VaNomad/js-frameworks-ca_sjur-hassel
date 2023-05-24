@@ -30,8 +30,9 @@ export default function Home() {
     
   }, []);
 
-  { isLoading && <Spinner /> }
-  {isError && <LoadErr />}
+  if (isLoading) return <Spinner />;
+  // if (!data) return <Spinner />;
+  if (isError) return <LoadErr />;
 
   return (
     <div className="h-screen flex flex-col items-center text-black">
