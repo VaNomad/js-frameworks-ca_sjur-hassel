@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
+import SearchBar from "../components/SearchBar";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
 
@@ -31,15 +32,11 @@ export default function Home() {
   }, []);
 
   if (isLoading) return <Spinner />;
-  // if (!data) return <Spinner />;
   if (isError) return <LoadErr />;
-
+  
   return (
     <div className="h-screen flex flex-col items-center text-black">
-      <h1 className=" text-4xl font-bold">Home Page</h1>
-      <div className="text-xl">
-        {"<"} searchbar placeholder {">"}
-      </div>
+      <SearchBar />
       {products.length > 0 && <Card products={products} title="All Products" />}
     </div>
   );
