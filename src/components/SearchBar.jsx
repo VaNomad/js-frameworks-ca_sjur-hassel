@@ -1,16 +1,44 @@
 import { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(-1);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setSearch(e.target.value);
+  };
+  const handleClose = () => {
+    setSearch("");
+    setSearchData([]);
+    setSelectedItem(-1);
+  };
+
+  const handleKeyDown = (e) => {
+    if (selectedItem < searchData.length) {
+      if (e.key === "ArrowUp" && selectedItem > 0) {
+        setSelectedItem((prev) => prev - 1);
+      } else if (
+        e.key === "ArrowDown" &&
+        selectedItem < searchData.length - 1
+      ) {
+        setSelectedItem((prev) => prev + 1);
+      } else if (e.key === "Enter" && selectedItem >= 0) {
+        navigate(`/details/${searchData[selectedItem].id}`);
+      }
+    } else {
+      setSelectedItem(-1);
+    }
   };
 
   useEffect(() => {
     if (search !== "") {
-      fetch(`https://api.noroff.dev/api/v1/online-shop?q=${search}`)
+      const url = `https://api.noroff.dev/api/v1/online-shop?q=${search}`;
+      fetch(url)
         .then((res) => res.json())
         .then((data) => setSearchData(data));
     }
@@ -27,28 +55,49 @@ export default function SearchBar() {
               autoComplete="off"
               onChange={handleChange}
               value={search}
+              onKeyDown={handleKeyDown}
+              onClick={() =>
+                navigate(`/details/${searchData[selectedItem].id}`)
+              }
               className="block w-full flex-1 py-2 px-3 focus:outline-none"
             />
-            <span
-              className="m-1  p-2 inline-flex cursor-pointer items-center rounded bg-green-600 hover:bg-fuchsia-600
-             hover:scale-105 transition-all duration-200"
-            >
-              <BsSearch size={25} color="white" />
-            </span>
+            <div className="flex">
+              {search === "" ? (
+                <div
+                  className="m-1 p-2 cursor-pointer items-center rounded bg-green-600 hover:bg-green-500
+               hover:scale-105 transition-all duration-200"
+                >
+                  <BsSearch size={25} color="white" />
+                </div>
+              ) : (
+                <div
+                  className="m-1 p-2 inline-flex cursor-pointer items-center rounded bg-fuchsia-600 hover:bg-fuchsia-400
+               hover:scale-105 transition-all duration-200"
+                >
+                  <IoMdClose size={25} color="white" onClick={handleClose} />
+                </div>
+              )}
+            </div>
           </div>
         </form>
         <div className="absolute z-10 flex flex-col mt-2 p-2 overflow-hidden rounded bg-white">
           {searchData.map((data, index) => {
             return (
-              <a href={data} key={index} className="py-2">
+              <a
+                href={data}
+                key={index}
+                target="_blank"
+                rel="noreferrer"
+                className={
+                  selectedItem === index
+                    ? "search-line my-1 active"
+                    : "searchline"
+                }
+              >
                 {data.title}
               </a>
             );
           })}
-          {/* <div className="cursor-pointer py-2 px-3 hover:bg-slate-100">
-            <p className="text-sm font-medium text-gray-600">Button Ripple Effect</p>
-            <p className=""></p>
-          </div> */}
         </div>
       </div>
     </>
