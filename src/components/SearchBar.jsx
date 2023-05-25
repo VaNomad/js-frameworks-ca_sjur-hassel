@@ -38,6 +38,10 @@ export default function SearchBar() {
     }
   };
 
+  const handleOnClick = () => {
+    navigate(`/details/${searchData[selectedItem].id}`);
+  }
+
   // Call
   useEffect(() => {
     if (search !== "") {
@@ -95,7 +99,8 @@ export default function SearchBar() {
                     ? "search-line my-1 active"
                     : "searchline"
                 }
-                onClick={() => navigate(`/details/${data.id}`)}
+                onClick={handleOnClick}
+                // onClick={() => navigate(`/details/${data.id}`)}
               >
                 {data.title}
               </a>
