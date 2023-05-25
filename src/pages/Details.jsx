@@ -65,7 +65,7 @@ export default function Details() {
         <div className="flex flex-col px-2 m- justify-center">
           <h1 className="text-3xl p-3 border-b border-gray-500">{title}</h1>
           <div className="p-3">{ description }</div>
-          <div>{ reviews.rating }</div>
+          <div>{ reviews && reviews.rating }</div>
           <div className="p-3">Tags #{tags}</div>
           <div className="text-xl font-bold hidden">{price}</div>
           <div className="test-xl font-bold p-3">$ {discountedPrice}</div>
