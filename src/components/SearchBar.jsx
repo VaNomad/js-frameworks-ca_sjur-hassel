@@ -31,7 +31,8 @@ export default function SearchBar() {
       ) {
         setSelectedItem((prev) => prev + 1);
       } else if (e.key === "Enter" && selectedItem >= 0) {
-        navigate(`/details/${searchData[selectedItem].id}`);
+        const selectedData = searchData[selectedItem];
+        navigate(`/details/${selectedData.id}`);
       }
     } else {
       setSelectedItem(-1);
@@ -39,7 +40,11 @@ export default function SearchBar() {
   };
 
   const handleOnClick = () => {
-    navigate(`/details/${searchData[selectedItem].id}`);
+    if (selectedItem >= 0) {
+      const selectedData = searchData[selectedItem];
+      navigate(`/details/${selectedData.id}`);
+    }
+    
   };
 
   // Call
@@ -91,15 +96,14 @@ export default function SearchBar() {
           {searchData.map((data, index) => {
             return (
               <a
-                href={data}
+                href={`/details/${data.id}`}
                 key={index}
                 className={
                   selectedItem === index
                     ? "search-line my-1 active"
-                    : "searchline"
+                    : "search-line"
                 }
                 onClick={handleOnClick}
-                // onClick={() => navigate(`/details/${data.id}`)}
               >
                 {data.title}
               </a>
