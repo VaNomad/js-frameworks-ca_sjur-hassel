@@ -20,11 +20,18 @@
 }
 
 .card-zoom-text {
-  @apply absolute text-6xl font-black transition-all duration-500 ease-in-out transform scale-100 text-gray-50 opacity-0;
+  @apply absolute text-6xl transition-all duration-500 ease-in-out transform scale-100 opacity-0;
 }
 
 .card-zoom:hover .card-zoom-text {
-  @apply scale-50 text-white opacity-100 bg-black rounded-xl py-[30px] px-[50px];
+  @apply scale-50 opacity-100 rounded-xl;
+}
+.card-zoom-button {
+  @apply absolute w-full font-black transition-all duration-500 ease-in-out transform scale-100 text-gray-50 opacity-0;
+}
+
+.card-zoom:hover .card-zoom-button {
+  @apply absolute scale-50 text-black bg-white rounded-full p-2 opacity-100;
 }
 
 /* Navigation —————————————————————————————————————————— */
