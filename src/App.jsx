@@ -3,12 +3,16 @@
 import "./App.css";
 // Components
 import NavBar from "./components/header/NavBar";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import CheckOut from "./pages/CheckOut";
+// import CheckOut from "./pages/CheckOut";
 import Details from "./pages/Details";
+
+import Shop from "./pages/shop/shop";
+import Cart from "./pages/cart/Cart";
 // Router
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ShopContextProvider from "./context/ShopContext";
 // import HomePage from "./api/HomePage";
 
 // React-Router —————————————————————————————————
@@ -18,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Shop />,
       },
       {
         path: "/contact",
@@ -26,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <CheckOut />,
+        element: <Cart />,
       },
       {
         path: "/details/:id",
@@ -41,7 +45,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div>
-      <RouterProvider router={router} />
+      <ShopContextProvider>
+        <RouterProvider router={router} />
+      </ShopContextProvider>
     </div>
   );
 }
