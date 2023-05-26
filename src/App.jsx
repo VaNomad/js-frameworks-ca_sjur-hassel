@@ -9,6 +9,7 @@ import CheckOut from "./pages/CheckOut";
 import Details from "./pages/Details";
 // Router
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import HomePage from "./api/HomePage";
 
 // React-Router —————————————————————————————————
 const router = createBrowserRouter([

@@ -1,11 +1,11 @@
-import { useState, useEffect, createContext, Children } from "react";
+import { useState, useEffect, createContext } from "react";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
 
-const context = createContext();
 const url = "https://api.noroff.dev/api/v1/online-shop";
+const ProductContext = createContext();
 
-export default function ProductList() {
+export default function ProductListProvider ({children}) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -32,5 +32,9 @@ export default function ProductList() {
   if (isLoading) return <Spinner />;
   if (isError) return <LoadErr />;
 
-  return <context.Provider value={{ products }}>{Children}</context.Provider>;
+  return (
+    <ProductContext.Provider value={{ products }}>
+      {children}
+    </ProductContext.Provider>
+  );
 }
