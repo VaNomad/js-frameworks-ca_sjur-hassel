@@ -1,10 +1,7 @@
 import { useState, useEffect, createContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
-import { MdArrowBack } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { StoreContext } from "../context/ShopContext";
 
 const SingleProductContext = createContext();
 
