@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import Cart from "./Cart";
+import { BsBag } from "react-icons/bs";
 
 export default function NavBar() {
   return (
@@ -38,7 +38,7 @@ export default function NavBar() {
         <div className="flex flex-col md:flex-row-reverse md:w-1/3 h-full justify-between">
           <div className="flex justify-end">
             <Link to="/checkout">
-              <Cart />
+              <BsBag size={25} />
             </Link>
           </div>
           {/* Logo */}

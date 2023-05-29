@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShopContext } from "../context/ShopContext";
+import { ShopContext } from "../../context/ShopContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";

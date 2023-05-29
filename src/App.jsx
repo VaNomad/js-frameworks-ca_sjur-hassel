@@ -2,14 +2,14 @@
 // Css
 import "./App.css";
 // Components
-import NavBar from "./components/header/NavBar";
+import NavBar from "./components/NavBar";
 // import Home from "./pages/Home";
-import Contact from "./pages/Contact";
+import Contact from "./pages/contact/Contact"
 // import CheckOut from "./pages/CheckOut";
-import Details from "./pages/Details";
+import Details from "./pages/productDetails/ProductDetails";
 
 import Shop from "./pages/shop/shop";
-import Cart from "./pages/cart/Cart";
+import { BsBag } from "react-icons/bs";
 // Router
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ShopContextProvider from "./context/ShopContext";
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Cart />,
+        element: <BsBag size={25} />,
       },
       {
         path: "/details/:id",
