@@ -3,9 +3,9 @@ import Cart from "./Cart";
 
 export default function Header() {
   return (
-    <div>
+    <Header>
       <NavBar />
       <Cart />
-    </div>
+    </Header>
   );
 }

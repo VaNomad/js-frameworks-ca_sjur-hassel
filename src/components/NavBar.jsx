@@ -1,5 +1,5 @@
-import { Link, NavLink, Outlet } from "react-router-dom"
-import Cart from "./Cart"
+import { Link, NavLink, Outlet } from "react-router-dom";
+import Cart from "./Cart";
 
 export default function NavBar() {
   return (
