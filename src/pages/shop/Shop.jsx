@@ -1,19 +1,8 @@
 import React, { useContext } from "react";
-import ProductListProvider, {
-  ProductContext,
-} from "../../api/ProductList";
-import Product from "../../api/SingleProduct";
+import { ProductContext } from "../../api/ProductList";
+import SingleProduct from "../../api/SingleProduct";
 import Card from "../../components/Card";
 import SearchBar from "../../components/SearchBar";
-
-
-// export default function Store() {
-//   return (
-//     <ProductListProvider>
-//       <ProductListComponent />
-//     </ProductListProvider>
-//   );
-// }
 
 export default function Shop() {
   const { products } = useContext(ProductContext);
@@ -27,13 +16,15 @@ export default function Shop() {
         )}
       </div>
       <div>
-        {ProductListProvider.map((product) => (
+        {products.map((product) => (
           <>
             <div key={product.id}>
               <h2>{product.title}</h2>
               <img src={product.image} alt={product.title} />
             </div>
-            <Product key={product.id} data={product} />
+            <SingleProduct>
+              <Product data={product} />
+            </SingleProduct>
           </>
         ))}
       </div>
