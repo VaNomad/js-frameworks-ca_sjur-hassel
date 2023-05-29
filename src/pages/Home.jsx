@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
+// import Search from "../components/Search"
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
 

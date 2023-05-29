@@ -64,7 +64,7 @@ export default function SearchBar() {
         <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
           <input
             type="text"
-            placeholder="Search for Items . . ."
+            placeholder="Search products here . . ."
             autoComplete="on"
             onChange={handleChange}
             value={search}
