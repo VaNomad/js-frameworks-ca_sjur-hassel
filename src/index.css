@@ -29,5 +29,8 @@
 
 /* Navigation —————————————————————————————————————————— */
 .active {
-  @apply border-b border-r border-black pt-2 pb-1 pe-6 rounded-tr-full transition-all duration-200 font-bold 
+  @apply border-b border-r border-black pt-2 pb-1 pe-6 rounded-tr-full transition-all duration-150 text-fuchsia-700
+}
+.notactive {
+  @apply border-b border-r border-transparent pt-2 pb-1 pe-6 rounded-tr-full
 }

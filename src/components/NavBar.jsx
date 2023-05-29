@@ -8,26 +8,26 @@ export default function NavBar() {
         {/* Left Box */}
         <div className="h-full md:w-1/4 md:justify-center lg:justify-center">
           <ul className="flex flex-col md:flex-row md:gap-8 h-full justify-between">
-            <li>
+            <li className="min-w-[70px]">
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? "active" : "notactive")}
               >
                 Home
               </NavLink>
             </li>
-            <li>
+            <li className="min-w-[70px]">
               <NavLink
                 to="/contact"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? "active" : "notactive")}
               >
                 Contact
               </NavLink>
             </li>
-            <li>
+            <li className="min-w-[70px]">
               <NavLink
                 to="/checkout"
-                className={({ isActive }) => (isActive ? "active" : "")}
+                className={({ isActive }) => (isActive ? "active" : "notactive")}
               >
                 Checkout
               </NavLink>
