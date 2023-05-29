@@ -4,6 +4,7 @@ import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
 import { MdArrowBack } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../utils/FormatCurrency";
 
 export default function Details() {
   const [data, setData] = useState(null);
@@ -68,7 +69,7 @@ export default function Details() {
           <div>{ reviews && reviews.rating }</div>
           <div className="p-3">Tags #{tags}</div>
           <div className="text-xl font-bold hidden">{price}</div>
-          <div className="test-xl font-bold p-3">$ {discountedPrice}</div>
+          <div className="test-xl font-bold p-3">{formatCurrency(discountedPrice)}</div>
           <Link to="/checkout" className="p-3">
             <button className="rounded-md text-white uppercase bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 hover:bg-none hover:border-2 hover:border-green-700 hover:text-black hover:scale-105 transition-all duration-100 ease-in-out">
               Add To Cart
