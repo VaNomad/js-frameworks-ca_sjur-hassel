@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import Cart from "./Cart";
+import { BsBag } from "react-icons/bs";
 
 export default function NavBar() {
   return (
@@ -11,7 +11,9 @@ export default function NavBar() {
             <li className="min-w-[70px]">
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "active" : "notactive")}
+                className={({ isActive }) =>
+                  isActive ? "active" : "notactive"
+                }
               >
                 Home
               </NavLink>
@@ -19,7 +21,9 @@ export default function NavBar() {
             <li className="min-w-[70px]">
               <NavLink
                 to="/contact"
-                className={({ isActive }) => (isActive ? "active" : "notactive")}
+                className={({ isActive }) =>
+                  isActive ? "active" : "notactive"
+                }
               >
                 Contact
               </NavLink>
@@ -27,7 +31,9 @@ export default function NavBar() {
             <li className="min-w-[70px]">
               <NavLink
                 to="/checkout"
-                className={({ isActive }) => (isActive ? "active" : "notactive")}
+                className={({ isActive }) =>
+                  isActive ? "active" : "notactive"
+                }
               >
                 Checkout
               </NavLink>
@@ -36,9 +42,10 @@ export default function NavBar() {
         </div>
         {/* Right Box */}
         <div className="flex flex-col md:flex-row-reverse md:w-1/3 h-full justify-between">
-          <div className="flex justify-end">
+          <div className="flex justify-end relative">
             <Link to="/checkout">
-              <Cart />
+              <BsBag size={ 25 } />
+              <div className="absolute w-[20px] h-[20px] rounded-full bg-red-700 text-white flex justify-center items-center right-[-5px] bottom-[-5px]">3</div>
             </Link>
           </div>
           {/* Logo */}
