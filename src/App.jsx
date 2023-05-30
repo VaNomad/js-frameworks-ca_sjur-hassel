@@ -7,12 +7,13 @@ import Four04 from "./pages/Four04";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import CheckOut from "./pages/CheckOut";
-// import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import ProductList from "./api/ProductList";
 
 function App() {
   return (
     <>
-      {/* <ShoppingCartProvider> */}
+      <ShoppingCartProvider>
         <NavBar />
         <Routes>
           <Route index element={<Home />} />
@@ -21,7 +22,7 @@ function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="*" element={<Four04 />} />
         </Routes>
-      {/* </ShoppingCartProvider> */}
+      </ShoppingCartProvider>
     </>
     // <div>
     //   <RouterProvider router={router} />

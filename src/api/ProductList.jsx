@@ -36,8 +36,9 @@ export default function ProductList() {
 
   return (
     <div className="h-screen flex flex-col items-center text-black">
-      <SearchBar />
-      {products.length > 0 && <Card products={products} title="All Products" />}
+      {/* <SearchBar /> */}
+      {/* {products.length > 0 && <Card products={products} title="All Products" />} */}
+      <Card products={products} title="All Products" />
     </div>
   );
 }
