@@ -7,7 +7,7 @@ import Four04 from "./pages/Four04";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import CheckOut from "./pages/CheckOut";
-import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+// import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (

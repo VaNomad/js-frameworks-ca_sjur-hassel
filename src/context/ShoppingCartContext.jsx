@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { createContext, useContext, useState } from "react";
 import getData from "../pages/Home";
 
