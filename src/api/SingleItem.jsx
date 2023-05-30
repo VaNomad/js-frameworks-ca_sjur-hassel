@@ -53,10 +53,10 @@ export default function SingleItem() {
   //   tags,
   //   price,
   //   discountedPrice,
-  // } = data;
+  // } = item;
   // const quantity = 1;
 
   return (
-    <DetailsCard data={id}/>
+    <DetailsCard data={data}/>
   );
 }

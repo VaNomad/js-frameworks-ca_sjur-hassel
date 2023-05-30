@@ -3,9 +3,9 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils/FormatCurrency";
 import { useNavigate } from "react-router-dom";
-import SingleItem from "../api/SingleItem";
+// import SingleItem from "../api/SingleItem";
 
-export default function DetailsCard() {
+export default function DetailsCard({data}) {
   const navigate = useNavigate();
 
   const {
@@ -16,7 +16,7 @@ export default function DetailsCard() {
     tags,
     price,
     discountedPrice,
-  } = SingleItem;
+  } = data;
   const quantity = 1;
 
   return (
