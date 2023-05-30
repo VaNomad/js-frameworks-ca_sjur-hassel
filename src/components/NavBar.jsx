@@ -45,7 +45,7 @@ export default function NavBar() {
           <div className="flex justify-end relative">
             <Link to="/checkout">
               <BsBag size={25} />
-              <div className="absolute w-[20px] h-[20px] rounded-full bg-red-700 text-white flex justify-center items-center right-[-5px] bottom-[-5px] animate-pulse">
+              <div className="absolute w-[20px] h-[20px] rounded-full bg-red-700 text-white flex justify-center items-center right-[-5px] bottom-[-5px] animate-bounce">
                 3
               </div>
             </Link>
