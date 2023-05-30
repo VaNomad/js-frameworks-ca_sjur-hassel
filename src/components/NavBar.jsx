@@ -4,11 +4,11 @@ import { BsBag } from "react-icons/bs";
 export default function NavBar() {
   return (
     <>
-      <nav className="flex justify-between items-center md:justify-around p-3 h-[130px] md:h-full">
+      <nav className="flex justify-between items-center md:justify-around p-5 h-[130px] md:h-full shadow-lg shadow-fuchsia-200">
         {/* Left Box */}
         <div className="h-full md:w-1/4 md:justify-center lg:justify-center">
           <ul className="flex flex-col md:flex-row md:gap-8 h-full justify-between">
-            <li className="min-w-[70px]">
+            <li className="min-w-[80px]">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -18,7 +18,7 @@ export default function NavBar() {
                 Home
               </NavLink>
             </li>
-            <li className="min-w-[70px]">
+            <li className="min-w-[80px]">
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
@@ -28,7 +28,7 @@ export default function NavBar() {
                 Contact
               </NavLink>
             </li>
-            <li className="min-w-[70px]">
+            <li className="min-w-[80px]">
               <NavLink
                 to="/checkout"
                 className={({ isActive }) =>
