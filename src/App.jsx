@@ -12,7 +12,7 @@ import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 function App() {
   return (
     <>
-      <ShoppingCartProvider>
+      {/* <ShoppingCartProvider> */}
         <NavBar />
         <Routes>
           <Route index element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="*" element={<Four04 />} />
         </Routes>
-      </ShoppingCartProvider>
+      {/* </ShoppingCartProvider> */}
     </>
     // <div>
     //   <RouterProvider router={router} />
