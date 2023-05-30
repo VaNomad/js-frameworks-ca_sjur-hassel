@@ -1,93 +1,94 @@
-/* eslint-disable no-undef */
-import { createContext, useContext, useState } from "react";
-import getData from "../pages/Home";
+import { createContext, useState } from "react";
 
-const ShoppingCartContext = createContext({});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function useShoppingCart() {
-  return useContext(ShoppingCartContext);
-}
+export const ShoppingCartContext = createContext();
 
 export function ShoppingCartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 
-  // Gets Current Cart Content
+  // Gets all Items currently in the cart
   function getCartContent(id) {
-    return cartItems.find(item.id === id)?.quantity || 0;
+    return cartProducts.find((product) => product.id === id)?.quantity || 0;
   }
 
-  // Increases Cart Content By One
-  function increaseCart(id) {
+  // Adds one to cart
+  function addOneToCart(id) {
     const quantity = getCartContent(id);
 
     if (quantity === 0) {
-      setCartItems([
-        ...cartItems,
+      setCartProducts((prevProducts) => [
+        ...prevProducts,
         {
           id: id,
           quantity: 1,
         },
       ]);
     } else {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      setCartProducts(
+        (prevProducts) => prevProducts.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
         )
       );
     }
   }
 
-  // Decreases Cart Content By One
-  function decreaseCart(id) {
+  // Removes one from Cart
+  function eraseOneFromCart(id) {
     const quantity = getCartContent(id);
 
     if (quantity == 1) {
-      wipeCart(id);
+      deleteFromCart(id);
     } else {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      setCartProducts(
+        (prevProducts) => prevProducts.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
         )
       );
     }
   }
 
-  // Delete everything in Cart
-  function wipeCart(id) {
-    setCartItems((cartItems) =>
-      cartItems.filter((currentProduct) => {
+  // Deletes all items of a product
+  function deleteFromCart(id) {
+    setCartProducts((prevProducts) =>
+      prevProducts.filter((currentProduct) => {
         return currentProduct.id != id;
       })
     );
   }
 
-  // Get Total Cost Of Cart
+  // The total price for the Cart contents
   function getTotalCost() {
     let totalCost = 0;
-    cartItems.map((item) => {
-      const itemsData = getData(item.id);
-      totalCost += itemsData.price * item.quantity;
+    cartProducts.map((cartItem) => {
+      const productData = getProductData(cartItem.id);
+      totalCost += productData.price * cartItem.quantity;
     });
     return totalCost;
   }
 
+  const contextValue = {
+    items: cartProducts,
+    getCartContent, // Gets all Items currently in the cart
+    eraseOneFromCart, // Removes one from Cart
+    addOneToCart, // Adds one to cart
+    deleteFromCart, // Deletes all items of a product
+    getTotalCost, // The total price for the Cart contents
+  };
+
   return (
-    <ShoppingCartContext.Provider
-      value={{
-        getCartContent,
-        eraseFromCart,
-        addToCart,
-        wipeCart,
-        increaseCart,
-        decreaseCart,
-        itemCost,
-        getTotalCost,
-      }}
-    >
+    <ShoppingCartContext.Provider value={contextValue}>
       {children}
     </ShoppingCartContext.Provider>
   );
 }
 
-export default ShoppingCartProvider;
+
+// items: [],
+//   getCartContent: () => {},
+//   addOneToCart: () => {},
+//   eraseOneFromCart: () => {},
+//   deleteFromCart: () => {},
+//   getTotalCost: () => {},
