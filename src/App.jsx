@@ -7,18 +7,21 @@ import Four04 from "./pages/Four04";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import CheckOut from "./pages/CheckOut";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="/details/:id" element={<Details />} />
-        <Route path="*" element={<Four04 />} />
-      </Routes>
+      <ShoppingCartProvider>
+        <NavBar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="*" element={<Four04 />} />
+        </Routes>
+      </ShoppingCartProvider>
     </>
     // <div>
     //   <RouterProvider router={router} />
