@@ -4,7 +4,7 @@ import { BsBag } from "react-icons/bs";
 export default function NavBar() {
   return (
     <>
-      <nav className="flex justify-between items-center md:justify-around p-5 h-[130px] md:h-full shadow-lg shadow-fuchsia-200">
+      <nav className="flex justify-between items-center md:justify-around p-5 h-[130px] md:h-full shadow-lg shadow-fuchsia-50 sticky top-0 bg-white">
         {/* Left Box */}
         <div className="h-full md:w-1/4 md:justify-center lg:justify-center">
           <ul className="flex flex-col md:flex-row md:gap-8 h-full justify-between">
@@ -45,17 +45,18 @@ export default function NavBar() {
           <div className="flex justify-end relative">
             <Link to="/checkout">
               <BsBag size={25} />
-              <div className="absolute w-[20px] h-[20px] rounded-full bg-red-700 text-white flex justify-center items-center right-[-5px] bottom-[-5px] animate-bounce">
+              <div className="absolute w-[20px] h-[20px] rounded-full bg-green-700 text-white flex justify-center items-center right-[-7px] bottom-[-9px] hover:animate-bounce">
                 3
               </div>
             </Link>
           </div>
           {/* Logo */}
-          <div>
+          <div className="relative">
             <Link to={"/"}>
               <h1 className="text-2xl uppercase font-exa font-black tracking-wider bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text text-transparent">
                 Vespera
               </h1>
+              <h2 className="absolute md:justify-end right-0 bottom-[-10px] flex justify-center items-center tracking-wider">e-com shop</h2>
             </Link>
           </div>
         </div>
