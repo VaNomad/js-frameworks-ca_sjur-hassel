@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
 import DetailsCard from "../components/DetailsCard";
+import { ID_URL } from "../constants/url";
 
 export default function SingleItem() {
   const [data, setData] = useState(null);
@@ -10,6 +11,7 @@ export default function SingleItem() {
   const [isError, setIsError] = useState(false);
 
   let { id } = useParams();
+  
   console.log(id);
 
   useEffect(() => {
@@ -18,7 +20,8 @@ export default function SingleItem() {
         setIsLoading(true);
         setIsError(false);
 
-        const url = `https://api.noroff.dev/api/v1/online-shop/${id}`;
+        const url = `${ID_URL}${id}`;
+        // const url = `https://api.noroff.dev/api/v1/online-shop/${id}`;
         const response = await fetch(url);
         const json = await response.json();
 

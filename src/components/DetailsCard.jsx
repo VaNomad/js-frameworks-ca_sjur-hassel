@@ -55,7 +55,7 @@ export default function DetailsCard({data}) {
           <div>
             {productQuantity === 0 ? (
               <div to="" className="p-3">
-                <button onClick={() => cart.addOneToCart(data.id, data.price)} className="w-full p-3 rounded-md text-white uppercase bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 hover:bg-none hover:border-2 hover:border-green-700 hover:text-black hover:scale-105 transition-all duration-100 ease-in-out">
+                <button onClick={() => cart.addOneToCart(data.id, data.title, data.imageUrl, data.price, data.discountedPrice)} className="w-full p-3 rounded-md text-white uppercase bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 hover:bg-none hover:border-2 hover:border-green-700 hover:text-black hover:scale-105 transition-all duration-100 ease-in-out">
                   Add To Cart
                 </button>
               </div>

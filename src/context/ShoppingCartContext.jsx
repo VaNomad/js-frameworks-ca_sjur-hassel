@@ -11,18 +11,19 @@ export function ShoppingCartProvider({ children }) {
   }
 
   // Adds one to cart
-  function addOneToCart(id, discountedPrice, imageUrl, title) {
+  function addOneToCart(id, title, imageUrl, price, discountedPrice) {
     const quantity = getCartContent(id);
 
     if (quantity === 0) {
       setCartProducts((prevProducts) => [
         ...prevProducts,
         {
-          id: id,
           quantity: 1,
-          discountedPrice: discountedPrice,
+          id: id,
+          title: title,
           imageUrl: imageUrl,
-          title: title
+          price: price,
+          discountedPrice: discountedPrice,
         },
       ]);
     } else {
@@ -40,7 +41,7 @@ export function ShoppingCartProvider({ children }) {
   function eraseOneFromCart(id) {
     const quantity = getCartContent(id);
 
-    if (quantity == 1) {
+    if (quantity === 1) {
       deleteFromCart(id);
     } else {
       setCartProducts(
