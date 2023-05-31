@@ -11,26 +11,27 @@ export default function CheckOut() {
    );
   return (
     <>
-      <div className="flex h-screen items-center justify-center text-4xl font-bold text-black">
-        <h1>Cart Page</h1>
+      <div className="flex flex-col h-screen justify-center items-center text-4xl font-bold text-black">
         {productsCount == 0 ? (
           <>
             <h1>Your shopping cart is empty</h1>
           </>
         ) : (
           <>
-            <h2 className="fixed top-[155px] mb-2 bg-black px-6 py-2 text-center font-semibold uppercase text-white sm:top-[165px] md:absolute md:top-[60px] md:z-[-1]">
+            <h2 className="mb-2 bg-black px-6 py-2 text-center font-semibold uppercase text-white">
               Item Details
             </h2>
             {cart.items.map((currentProduct, index) => (
               <div key={currentProduct.id}>
-                <h1>{currentProduct.title}</h1>
-                <button className="bg-fuchsia-600 p-3 text-white">
-                  Place Order
-                </button>
+                <h1>{ currentProduct.title }</h1>
+                <div><img src={currentProduct.imageUrl} alt={currentProduct.title} /></div>
+                <h2>{currentProduct.price}</h2>
               </div>
             ))}
             <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
+            <button className="bg-fuchsia-600 p-3 text-white">
+              Place Order
+            </button>
           </>
         )}
       </div>
