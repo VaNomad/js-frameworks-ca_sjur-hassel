@@ -3,9 +3,16 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils/FormatCurrency";
 import { useNavigate } from "react-router-dom";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
+// import { ProductListContext } from "../context/ProductListContext";
+import { useContext } from "react";
+
 
 export default function DetailsCard({data}) {
   const navigate = useNavigate();
+  const cart = useContext(ShoppingCartContext);
+  const productQuantity = cart.getCartContent(data.id);
+  console.log(cart.items)
 
   const {
     title,
@@ -16,7 +23,7 @@ export default function DetailsCard({data}) {
     price,
     discountedPrice,
   } = data;
-  const quantity = 1;
+  // const quantity = 0;
 
   return (
     <div className="h-screen flex flex-col">
@@ -46,28 +53,28 @@ export default function DetailsCard({data}) {
             {formatCurrency(discountedPrice)}
           </div>
           <div>
-            {quantity === 0 ? (
-              <Link to="/checkout" className="p-3">
-                <button className="w-full p-3 rounded-md text-white uppercase bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 hover:bg-none hover:border-2 hover:border-green-700 hover:text-black hover:scale-105 transition-all duration-100 ease-in-out">
+            {productQuantity === 0 ? (
+              <div to="" className="p-3">
+                <button onClick={() => cart.addOneToCart(data.id)} className="w-full p-3 rounded-md text-white uppercase bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 hover:bg-none hover:border-2 hover:border-green-700 hover:text-black hover:scale-105 transition-all duration-100 ease-in-out">
                   Add To Cart
                 </button>
-              </Link>
+              </div>
             ) : (
               <div className="flex justify-between p-3 items-center">
                 <div className="flex justify-between items-center">
-                  <button className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
+                  <button onClick={() => cart.eraseOneFromCart(data.id)} className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
                     -
                   </button>
                   <div className="text-gray-500 mx-4">
-                    <span className="text-2xl text-black">{quantity}</span> in
+                    <span className="text-2xl text-black">{productQuantity}</span> in
                     cart
                   </div>
-                  <button className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
+                  <button onClick={() => cart.addOneToCart(data.id)} className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
                     +
                   </button>
                 </div>
                 <div>
-                  <button className="w-8 h-8 flex justify-center items-center rounded bg-red-700 text-white">
+                  <button onClick={() => cart.deleteFromCart(data.id)} className="w-8 h-8 flex justify-center items-center rounded bg-red-700 text-white">
                     <BsTrash size={20} />
                   </button>
                 </div>

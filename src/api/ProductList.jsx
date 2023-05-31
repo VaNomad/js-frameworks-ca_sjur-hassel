@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
-import { useProductListContext } from "../context/ProductListContext";
-import { useShoppingCartContext } from "../context/ShoppingCartContext";
+// import { useProductListContext } from "../context/ProductListContext";
+// import { useShoppingCartContext } from "../context/ShoppingCartContext";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
