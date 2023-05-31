@@ -1,7 +1,14 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { BsBag } from "react-icons/bs";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
+import { useContext } from "react";
+
 
 export default function NavBar() {
+  const cart = useContext(ShoppingCartContext);
+
+  const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
+
   return (
     <>
       <nav className="flex justify-between items-center md:justify-around p-5 h-[130px] md:h-full shadow-lg shadow-fuchsia-50 sticky top-0 bg-white">
@@ -46,7 +53,7 @@ export default function NavBar() {
             <Link to="/checkout">
               <BsBag size={25} />
               <div className="absolute w-[20px] h-[20px] rounded-full bg-green-700 text-white flex justify-center items-center right-[-7px] bottom-[-9px] hover:animate-bounce">
-                3
+                {productsCount}
               </div>
             </Link>
           </div>
