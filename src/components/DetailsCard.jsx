@@ -69,7 +69,7 @@ export default function DetailsCard({data}) {
                     <span className="text-2xl text-black">{productQuantity}</span> in
                     cart
                   </div>
-                  <button onClick={() => cart.addOneToCart(data.id)} className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
+                  <button onClick={() => cart.addOneToCart(data.id, data.price)} className="w-8 h-8 flex justify-center items-center rounded bg-blue-500 text-white">
                     +
                   </button>
                 </div>
