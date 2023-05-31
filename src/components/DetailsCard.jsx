@@ -28,13 +28,13 @@ export default function DetailsCard({data}) {
   return (
     <div className="h-screen flex flex-col">
       <div className="">
-        <div className="flex items-center justify-between py-2">
+        <div className="relative flex items-center justify-end py-2">
           <MdArrowBack
             onClick={() => navigate(-1)}
-            size={30}
-            className="w-1/4 cursor-pointer"
+            size={45}
+            className="fixed bg-white left-[-20px] top-[150px] sm:left-0 sm:top-[160px] cursor-pointer shadow-lg rounded-full mx-8 p-[8px]"
           />
-          <h2 className="text-center mb-2 font-semibold uppercase bg-black text-white py-2 px-6">
+          <h2 className="fixed md:absolute top-[155px] sm:top-[165px] md:top-[60px] md:z-[-1] text-center mb-2 font-semibold uppercase bg-black text-white py-2 px-6">
             Item Details
           </h2>
         </div>
