@@ -11,7 +11,7 @@ export function ShoppingCartProvider({ children }) {
   }
 
   // Adds one to cart
-  function addOneToCart(id) {
+  function addOneToCart(id, price) {
     const quantity = getCartContent(id);
 
     if (quantity === 0) {
@@ -20,6 +20,7 @@ export function ShoppingCartProvider({ children }) {
         {
           id: id,
           quantity: 1,
+          price: price,
         },
       ]);
     } else {
@@ -64,7 +65,7 @@ export function ShoppingCartProvider({ children }) {
     let totalCost = 0;
     cartProducts.forEach((cartItem) => {
       const productPrice = cartItem.price;
-      totalCost += productPrice.price * cartItem.quantity;
+      totalCost += productPrice * cartItem.quantity;
     });
     return totalCost;
   }
@@ -89,11 +90,3 @@ export function ShoppingCartProvider({ children }) {
 export function useShoppingCartContext() {
   return useContext(ShoppingCartContext);
 }
-
-
-// items: [],
-//   getCartContent: () => {},
-//   addOneToCart: () => {},
-//   eraseOneFromCart: () => {},
-//   deleteFromCart: () => {},
-//   getTotalCost: () => {},
