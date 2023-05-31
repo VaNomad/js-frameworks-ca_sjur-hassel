@@ -2,17 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
-// import { MdArrowBack } from "react-icons/md";
-// import { BsTrash } from "react-icons/bs";
-// import { Link } from "react-router-dom";
-// import { formatCurrency } from "../utils/FormatCurrency";
 import DetailsCard from "../components/DetailsCard";
 
 export default function SingleItem() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  // const navigate = useNavigate();
 
   let { id } = useParams();
   console.log(id);
@@ -45,7 +40,21 @@ export default function SingleItem() {
   if (!data) return <Spinner />;
   if (isError) return <LoadErr />;
 
-  // const {
+ 
+
+  return (
+    <DetailsCard data={data}/>
+  );
+}
+
+// import { MdArrowBack } from "react-icons/md"; LINE 6
+// import { BsTrash } from "react-icons/bs";
+// import { Link } from "react-router-dom";
+// import { formatCurrency } from "../utils/FormatCurrency";
+
+// const navigate = useNavigate(); LINE 14
+
+ // const {         AFTER 3 IFS, BEFORE RETURN
   //   title,
   //   imageUrl,
   //   description,
@@ -55,8 +64,3 @@ export default function SingleItem() {
   //   discountedPrice,
   // } = item;
   // const quantity = 1;
-
-  return (
-    <DetailsCard data={data}/>
-  );
-}

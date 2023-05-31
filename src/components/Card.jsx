@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
 export default function Card({ products, title }) {
+  console.log(products);
+  if (!products) {
+    return null;
+  }
   return (
     <>
       <h2 className="text-center mt-8 mb-2 font-semibold uppercase bg-black text-white p-3">

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const ShoppingCartContext = createContext();
 
@@ -62,9 +62,9 @@ export function ShoppingCartProvider({ children }) {
   // The total price for the Cart contents
   function getTotalCost() {
     let totalCost = 0;
-    cartProducts.map((cartItem) => {
-      const productData = getProductData(cartItem.id);
-      totalCost += productData.price * cartItem.quantity;
+    cartProducts.forEach((cartItem) => {
+      const productPrice = cartItem.price;
+      totalCost += productPrice.price * cartItem.quantity;
     });
     return totalCost;
   }
@@ -83,6 +83,11 @@ export function ShoppingCartProvider({ children }) {
       {children}
     </ShoppingCartContext.Provider>
   );
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useShoppingCartContext() {
+  return useContext(ShoppingCartContext);
 }
 
 

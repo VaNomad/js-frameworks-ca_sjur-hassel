@@ -3,7 +3,6 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils/FormatCurrency";
 import { useNavigate } from "react-router-dom";
-// import SingleItem from "../api/SingleItem";
 
 export default function DetailsCard({data}) {
   const navigate = useNavigate();

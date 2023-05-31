@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
-import SearchBar from "../components/SearchBar";
-// import Searching from "../components/Searching";
 import Spinner from "../utils/Spinner";
 import LoadErr from "../utils/LoadErr";
+import { useProductListContext } from "../context/ProductListContext";
+import { useShoppingCartContext } from "../context/ShoppingCartContext";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
 export default function ProductList() {
-  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     async function getData() {
@@ -20,9 +20,10 @@ export default function ProductList() {
 
         const response = await fetch(url);
         const json = await response.json();
-        setProducts(json);
-
+        
         setIsLoading(false);
+        setProducts(json);
+        
       } catch (error) {
         setIsLoading(false);
         setIsError(true);
@@ -36,9 +37,17 @@ export default function ProductList() {
 
   return (
     <div className="h-screen flex flex-col items-center text-black">
-      {/* <SearchBar /> */}
-      {/* {products.length > 0 && <Card products={products} title="All Products" />} */}
-      <Card products={products} title="All Products" />
+      <Card
+        products={products}
+        title="All Products"
+      />
     </div>
   );
 }
+
+// const [products, setProducts] = useState([]);  LINE 11
+// setProducts(json);   LINE 24
+//  <SearchBar />    LINE 41 & 42
+// { products.length > 0 && <Card products={ products } title="All Products" />; }
+
+
