@@ -11,7 +11,7 @@ export function ShoppingCartProvider({ children }) {
   }
 
   // Adds one to cart
-  function addOneToCart(id, price) {
+  function addOneToCart(id, discountedPrice, imageUrl, title) {
     const quantity = getCartContent(id);
 
     if (quantity === 0) {
@@ -20,7 +20,9 @@ export function ShoppingCartProvider({ children }) {
         {
           id: id,
           quantity: 1,
-          price: price,
+          discountedPrice: discountedPrice,
+          imageUrl: imageUrl,
+          title: title
         },
       ]);
     } else {
