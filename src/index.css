@@ -32,5 +32,14 @@
   @apply border-b border-r border-black pt-2 pb-1 pe-6 rounded-tr-full transition-all duration-150 font-bold
 }
 .notactive {
-  @apply border-b border-r border-transparent pt-2 pb-1 pe-6 rounded-tr-full hover:animate-pulse hover:text-fuchsia-600 hover:font-bold transition-all duration-300
+  @apply border-b border-r border-transparent pt-2 pb-1 pe-6 rounded-tr-full hover:text-fuchsia-600 hover:font-bold transition-all duration-300
+}
+.glowing {
+  @apply absolute w-[10px] h-[10px] rounded-full bg-red-600 text-white flex justify-center items-center right-[8px] bottom-[5px] md:bottom-[11px] opacity-0 animate-pulse
+}
+.notglowing {
+  @apply absolute w-[25px] h-[25px] rounded-full bg-gray-300 border border-gray-400 text-black flex justify-center items-center right-[-12px] bottom-[-15px]
+}
+.overlay-number {
+  @apply absolute w-[25px] h-[25px] rounded-full bg-transparent text-white flex justify-center items-center right-[-12px] bottom-[-15px] md:bottom-[-9px]
 }

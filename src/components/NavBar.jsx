@@ -11,10 +11,10 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex justify-between items-center md:justify-around p-5 h-[130px] md:h-full shadow-lg shadow-fuchsia-50 sticky top-0 bg-white">
+      <nav className="sticky top-0 flex h-[130px] items-center justify-between bg-white p-5 shadow-lg shadow-fuchsia-50 md:h-full md:justify-around">
         {/* Left Box */}
         <div className="h-full md:w-1/4 md:justify-center lg:justify-center">
-          <ul className="flex flex-col md:flex-row md:gap-8 h-full justify-between">
+          <ul className="flex h-full flex-col justify-between md:flex-row md:gap-8">
             <li className="min-w-[80px]">
               <NavLink
                 to="/"
@@ -48,22 +48,24 @@ export default function NavBar() {
           </ul>
         </div>
         {/* Right Box */}
-        <div className="flex flex-col md:flex-row-reverse md:w-1/3 h-full justify-between">
-          <div className="flex justify-end relative">
+        <div className="flex h-full flex-col justify-between md:w-1/3 md:flex-row-reverse">
+          <div className="relative flex justify-end">
             <Link to="/checkout">
               <BsBag size={25} />
-              <div className="absolute w-[20px] h-[20px] rounded-full bg-green-700 text-white flex justify-center items-center right-[-7px] bottom-[-9px] hover:animate-bounce">
-                {productsCount}
-              </div>
+              <div className={productsCount ? "glowing" : "notglowing"}></div>
+              <div className="absolute bottom-[-15px] md:bottom-[-9px] right-[-12px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-green-600"></div>
+              <div className="overlay-number">{productsCount}</div>
             </Link>
           </div>
           {/* Logo */}
           <div className="relative">
             <Link to={"/"}>
-              <h1 className="text-2xl uppercase font-exa font-black tracking-wider bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text text-transparent">
+              <h1 className="bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text font-exa text-2xl font-black uppercase tracking-wider text-transparent">
                 Vespera
               </h1>
-              <h2 className="absolute md:justify-end right-0 bottom-[-10px] flex justify-center items-center tracking-wider">e-com shop</h2>
+              <h2 className="absolute bottom-[-10px] right-0 flex items-center justify-center tracking-wider md:justify-end">
+                e-commerce
+              </h2>
             </Link>
           </div>
         </div>
