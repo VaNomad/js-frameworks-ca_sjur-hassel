@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -24,6 +23,13 @@ export default {
 
         "2xl": "1536px",
         // => @media (min-width: 1536px) { ... }
+      },
+      fontFamily: {
+        exa: ['"Lexend Exa"', "sans-serif"],
+      },
+      backgroundImage: {
+        beetle:
+          "url('http://lh4.ggpht.com/-uXFGVuWikTo/UFR9CXcy0dI/AAAAAAAAAdQ/CWI2AqeDquk/20120915140325.png')",
       },
     },
   },
