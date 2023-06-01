@@ -27,8 +27,8 @@ export function ShoppingCartProvider({ children }) {
         },
       ]);
     } else {
-      setCartProducts(
-        (prevProducts) => prevProducts.map((product) =>
+      setCartProducts((prevProducts) =>
+        prevProducts.map((product) =>
           product.id === id
             ? { ...product, quantity: product.quantity + 1 }
             : product
@@ -44,8 +44,8 @@ export function ShoppingCartProvider({ children }) {
     if (quantity === 1) {
       deleteFromCart(id);
     } else {
-      setCartProducts(
-        (prevProducts) => prevProducts.map((product) =>
+      setCartProducts((prevProducts) =>
+        prevProducts.map((product) =>
           product.id === id
             ? { ...product, quantity: product.quantity - 1 }
             : product
@@ -67,10 +67,24 @@ export function ShoppingCartProvider({ children }) {
   function getTotalCost() {
     let totalCost = 0;
     cartProducts.forEach((cartItem) => {
-      const productPrice = cartItem.price;
+      let productPrice = cartItem.discountedPrice;
+      if (!cartItem.discountedPrice) {
+        productPrice = cartItem.price
+      }
       totalCost += productPrice * cartItem.quantity;
     });
     return totalCost;
+  }
+
+  // Discount Calculation
+  function discountPercentage() {
+    if (cartProducts.discountedPrice) {
+      const discount = cartProducts.price - cartProducts.discountedPrice;
+      const percent = Math.round((discount / cartProducts.price) * 100);
+      return percent;
+    } else {
+      return 0
+    }
   }
 
   const contextValue = {
@@ -80,6 +94,7 @@ export function ShoppingCartProvider({ children }) {
     addOneToCart, // Adds one to cart
     deleteFromCart, // Deletes all items of a product
     getTotalCost, // The total price for the Cart contents
+    discountPercentage, // The discount in percent
   };
 
   return (
