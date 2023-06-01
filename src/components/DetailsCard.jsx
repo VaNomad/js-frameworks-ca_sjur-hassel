@@ -32,7 +32,7 @@ export default function DetailsCard({data}) {
           <MdArrowBack
             onClick={() => navigate(-1)}
             size={45}
-            className="fixed left-[-20px] top-[150px] mx-8 cursor-pointer rounded-full bg-white p-[8px] shadow-lg sm:left-0 sm:top-[160px]"
+            className="fixed left-[-20px] top-[150px] mx-8 cursor-pointer rounded-full bg-white p-[8px] hover:p-[7px] shadow-sm hover:shadow-xl sm:left-0 sm:top-[160px] duration-300 ease-in-out"
           />
           <h2 className="fixed top-[155px] mb-2 bg-black px-6 py-2 text-center font-semibold uppercase text-white sm:top-[165px] md:absolute md:top-[60px] md:z-[-1]">
             Item Details
@@ -65,7 +65,7 @@ export default function DetailsCard({data}) {
                       data.discountedPrice
                     )
                   }
-                  className="hover:border-1 w-full rounded-md bg-gradient-to-b from-violet-800 to-fuchsia-600 p-3 px-3 py-2 text-xl font-light uppercase text-white transition-all duration-200 ease-in-out hover:border-fuchsia-700 hover:bg-none hover:text-fuchsia-700 hover:shadow-lg"
+                  className="mt-4 w-full rounded-md bg-fuchsia-600 p-3 px-3 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl lg:w-[500px]"
                 >
                   Add To Cart
                 </button>
