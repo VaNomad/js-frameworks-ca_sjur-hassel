@@ -1,6 +1,6 @@
 
 const CURRENCY_FORMATTER = new Intl.NumberFormat("de-DE", {
-  currency: "EUR", style: "currency"
+  currency: "NOK", style: "currency"
 });
 
 export function formatCurrency(number) {
