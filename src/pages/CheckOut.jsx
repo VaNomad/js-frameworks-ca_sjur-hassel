@@ -40,15 +40,15 @@ export default function CheckOut() {
                   />
                 </div>
                 <p className="text-lg font-normal text-gray-500">
-                  Price: {formatCurrency(item.discountedPrice)}
+                  Price:{" "}
+                  {item.discountedPrice
+                    ? formatCurrency(item.discountedPrice)
+                    : formatCurrency(item.price)}
                 </p>
                 <div className="rounded-full bg-green-500 px-4 py-1 text-sm text-white">
                   <span className="text-black">Discount: </span>
-                  {discountPercentage()} %
+                  {discountPercentage(item.discountedPrice, item.price)} %
                 </div>
-                <p className="text-lg font-normal text-gray-500">
-                  Price: {formatCurrency(item.price)}
-                </p>
                 <p className="text-lg font-normal text-black">
                   x <span className="font-bold">{item.quantity}</span>
                 </p>

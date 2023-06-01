@@ -77,13 +77,13 @@ export function ShoppingCartProvider({ children }) {
   }
 
   // Discount Calculation
-  function discountPercentage() {
-    if (cartProducts.discountedPrice) {
-      const discount = cartProducts.price - cartProducts.discountedPrice;
-      const percent = Math.round((discount / cartProducts.price) * 100);
+  function discountPercentage(discountedPrice, price) {
+    if (discountedPrice) {
+      const discount = price - discountedPrice;
+      const percent = Math.round((discount / price) * 100);
       return percent;
     } else {
-      return 0
+      return 0;
     }
   }
 
