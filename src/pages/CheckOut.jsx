@@ -52,9 +52,6 @@ export default function CheckOut() {
                 <p className="text-lg font-normal text-black">
                   x <span className="font-bold">{item.quantity}</span>
                 </p>
-                <h1 className="text-xl">
-                  Total: {getTotalCost(formatCurrency())}
-                </h1>
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center justify-between">
                     <button
@@ -67,7 +64,6 @@ export default function CheckOut() {
                       <span className="text-2xl text-black">
                         {item.quantity}
                       </span>{" "}
-                      
                     </div>
                     <button
                       onClick={() => cart.addOneToCart(item.id, item.price)}
@@ -87,10 +83,12 @@ export default function CheckOut() {
                 </div>
               </div>
             ))}
-
-            <button className="bg-fuchsia-600 p-3 text-white">
-              Place Order
-            </button>
+            <div className="flex flex-col">
+              <h1 className="text-xl">Total: {getTotalCost()}</h1>
+              <button className="bg-fuchsia-600 p-3 text-white">
+                Place Order
+              </button>
+            </div>
           </div>
         )}
       </div>
