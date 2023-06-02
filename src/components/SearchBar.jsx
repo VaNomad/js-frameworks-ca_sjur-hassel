@@ -60,7 +60,7 @@ export default function SearchBar() {
   return (
     <>
       {/* Search Bar */}
-      <div className="relative w-full border border-y-black border-y-2">
+      <div className="fixed top-32 md:top-[70px] w-full border border-y-gray-400 border-y-2 z-10 shadow-lg">
         <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
           <input
             type="text"

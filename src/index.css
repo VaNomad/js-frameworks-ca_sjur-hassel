@@ -38,7 +38,7 @@
   @apply absolute w-[10px] h-[10px] rounded-full bg-red-600 text-white flex justify-center items-center right-[8px] bottom-[5px] md:bottom-[11px] opacity-0 animate-pulse
 }
 .notglowing {
-  @apply absolute w-[25px] h-[25px] rounded-full bg-gray-300 border border-gray-400 text-black flex justify-center items-center right-[-12px] bottom-[-15px]
+  @apply absolute w-[25px] h-[25px] rounded-full bg-gray-300 border border-gray-400 text-black flex justify-center items-center right-[-12px] bottom-[-15px] md:bottom-[-9px]
 }
 .overlay-number {
   @apply absolute w-[25px] h-[25px] rounded-full bg-transparent text-white flex justify-center items-center right-[-12px] bottom-[-15px] md:bottom-[-9px]

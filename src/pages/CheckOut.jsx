@@ -19,9 +19,9 @@ export default function CheckOut() {
     <>
       <div className="flex h-screen flex-col items-center justify-center text-4xl font-bold text-black">
         {productsCount == 0 ? (
-          <>
+          <div className="text-3xl px-5 text-center flex-wrap md:text-5xl">
             <h1>Your shopping cart is empty</h1>
-          </>
+          </div>
         ) : (
           <div className="flex h-screen flex-col justify-center lg:items-center">
             {/* Checkout Label  */}
