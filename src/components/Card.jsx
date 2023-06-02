@@ -6,7 +6,7 @@ export default function Card({ products, title }) {
     return null;
   }
   return (
-    <div className="mt-[170px]">
+    <div className="mt-[170px] md:mt-[110px]">
       <h2 className="text-center mt-8 mb-2 font-semibold uppercase bg-black text-white p-3">
         {title}
       </h2>
