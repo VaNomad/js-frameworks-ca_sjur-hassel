@@ -15,52 +15,65 @@ export default function CheckOut() {
     <>
       <div className="flex flex-col items-center justify-center text-4xl font-bold text-black">
         {productsCount === 0 ? (
-          <div className="flex flex-col items-center justify-center px-5 text-3xl md:text-5xl">
+          <div className="flex h-screen items-center justify-center px-5 text-3xl md:text-5xl">
             <h1>Your shopping cart is empty</h1>
           </div>
         ) : (
           <>
             <div className="mt-[90px] flex flex-col justify-center lg:items-center">
               {/* Checkout Label  */}
-              <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 sm:py-3 sm:text-lg">
+              <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 lg:px-2 sm:py-3 lg:py-2 sm:text-base">
                 <span>check </span>
                 <span>out</span>
               </div>
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="mb-4 flex flex-col items-center justify-between p-3 md:w-[500px] md:flex-row md:border-b md:border-gray-300 lg:w-[900px] xl:w-[1100px]"
+                  className="mb-4 rounded-lg flex flex-col items-center justify-between p-3 md:w-[500px] md:flex-row lg:w-[900px] xl:w-[1100px] shadow-lg"
                 >
                   {/* Image */}
-                  <div>
+                  <div className="relative">
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="m-3 h-[200px] w-[200px] rounded-lg object-cover"
+                      className="m-3 h-[200px] w-[200px] rounded-lg object-cover shadow-md"
                     />
-                  </div>
-                  <div className="flex flex-col gap-4 lg:w-3/5 lg:flex-row lg:justify-between">
-                    {/* Title & Price */}
-                    <div className="flex flex-col">
-                      <p className="text-lg">{item.title}</p>
-                      <p className="text-lg font-normal text-gray-500">
-                        {" "}
-                        {item.discountedPrice
-                          ? formatCurrency(item.discountedPrice)
-                          : formatCurrency(item.price)}
-                      </p>
-                    </div>
                     {/* Discount Overlay */}
-                    <div className="absolute right-0 top-3 flex items-center rounded-full bg-green-500 px-2 py-1 text-sm text-white md:right-[250px] lg:right-[650px] xl:right-[850px]">
-                      <BiMinus />
-                      {discountPercentage(item.discountedPrice, item.price)} %
+                    {item.discountedPrice &&
+                      item.discountedPrice < item.price && (
+                        <div className="absolute right-0 top-0 flex items-center rounded-full bg-lime-400 px-2 py-1 text-sm shadow-md">
+                          <BiMinus />
+                          {discountPercentage(
+                            item.discountedPrice,
+                            item.price
+                          )}{" "}
+                          %
+                        </div>
+                      )}
+                  </div>
+                  <div className="flex flex-col gap-4 md:w-1/2 lg:flex-row lg:justify-around lg:w-2/3">
+                    {/* Title & Price */}
+                    <div className="flex flex-col items-center">
+                      <h1 className="text-lg text-gray-500 mb-4">{item.title}</h1>
+
+                      {item.discountedPrice &&
+                      item.discountedPrice < item.price ? (
+                        <div className="text-xl">
+                          <h2>{formatCurrency(item.discountedPrice)}</h2>
+                          <h2 className="text-red-600 line-through decoration-black">
+                            {formatCurrency(item.price)}
+                          </h2>
+                        </div>
+                      ) : (
+                        <h2 className="text-xl">{formatCurrency(item.discountedPrice)}</h2>
+                      )}
                     </div>
-                    <div className="mt-2 flex flex-col items-center gap-2 md:gap-6">
+                    <div className="mt-1 flex flex-col items-center gap-2 md:gap-6">
                       <div className="flex items-center justify-between gap-4">
                         {/* Minus Button */}
                         <button
                           onClick={() => cart.eraseOneFromCart(item.id)}
-                          className="rounded bg-blue-500 text-white"
+                          className="rounded bg-blue-500 text-white shadow-md"
                         >
                           <BiMinus />
                         </button>
@@ -73,7 +86,7 @@ export default function CheckOut() {
                         {/* Plus Button */}
                         <button
                           onClick={() => cart.addOneToCart(item.id, item.price)}
-                          className="rounded bg-blue-500 text-white"
+                          className="rounded bg-blue-500 text-white shadow-md"
                         >
                           <BiPlus />
                         </button>
@@ -82,7 +95,7 @@ export default function CheckOut() {
                       <div>
                         <button
                           onClick={() => cart.deleteFromCart(item.id)}
-                          className="mt-2 flex h-9 w-9 items-center justify-center rounded bg-red-700 text-white md:mt-0 lg:mt-0"
+                          className="my-2 flex h-9 w-9 items-center justify-center rounded bg-red-600 text-white md:mt-0 lg:mt-0 shadow-md"
                         >
                           <BsTrash size={25} />
                         </button>
