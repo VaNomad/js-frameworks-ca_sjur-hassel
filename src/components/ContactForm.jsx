@@ -44,37 +44,46 @@ export default function ContactForm() {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="fullid">Full id</label>
+      <form onSubmit={onSubmit} className="bg-black h-screen w-full">
+        <label htmlFor="fullName">Full Name</label>
         <input
           type="text"
           id="fullName"
           value={fullName}
           placeholder="Your full Name"
-          onChange={onInputChange}
-        />
+          onChange={ onInputChange }
+          minLength={ 3 }
+          required
+         className="border border-black"/>
         <label htmlFor="email">E-mail</label>
         <input
+          type="email"
           id="email"
           value={email}
           placeholder="Your E-mail"
-          onChange={onInputChange}
+          onChange={ onInputChange }
+          required
         />
         <label htmlFor="subject">Subject</label>
         <input
+          type="text"
           id="subject"
           value={subject}
           placeholder="Message Subject"
-          onChange={onInputChange}
+          onChange={ onInputChange }
+          minLength={ 3 }
+          required
         />
         <label htmlFor="message">Message</label>
         <textarea
           id="message"
           value={message}
           placeholder="Your Message"
-          onChange={onInputChange}
+          onChange={ onInputChange }
+          minLength={ 3 }
+          required
         ></textarea>
-        <button type="submit" onClick={onSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
