@@ -2,14 +2,10 @@ import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { BsTrash } from "react-icons/bs";
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { formatCurrency } from "../utils/FormatCurrency";
-// import { useProductListContext } from "../context/ProductListContext";
-// import { useContext } from "react";
-// import { formatCurrency } from "../utils/FormatCurrency";
 
 export default function CheckOut() {
   const { items, getTotalCost, discountPercentage } = useShoppingCartContext();
   const cart = useShoppingCartContext();
-  // const { products } = useProductListContext();
 
   const productsCount = items.reduce(
     (sum, product) => sum + product.quantity,
@@ -18,8 +14,8 @@ export default function CheckOut() {
   return (
     <>
       <div className="flex flex-col items-center justify-center text-4xl font-bold text-black">
-        {productsCount == 0 ? (
-          <div className="flex-wrap px-5 text-center text-3xl md:text-5xl">
+        {productsCount === 0 ? (
+          <div className="flex flex-col items-center justify-center px-5 text-3xl md:text-5xl">
             <h1>Your shopping cart is empty</h1>
           </div>
         ) : (
@@ -33,7 +29,7 @@ export default function CheckOut() {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="relative mb-4 flex flex-col items-center justify-between md:border-b md:border-gray-300 p-3 md:w-[500px] md:flex-row lg:w-[900px] xl:w-[1100px]"
+                  className="mb-4 flex flex-col items-center justify-between p-3 md:w-[500px] md:flex-row md:border-b md:border-gray-300 lg:w-[900px] xl:w-[1100px]"
                 >
                   {/* Image */}
                   <div>
@@ -95,25 +91,18 @@ export default function CheckOut() {
                   </div>
                 </div>
               ))}
-              </div>
-              <div className="h-[100px]">
-              </div>
+            </div>
+            <div className="h-[100px]"></div>
+            <div className="fixed bottom-[70px] z-10 mx-4 w-full border-2 border-green-500 bg-white px-1 py-1 text-center">
+              <h1 className="text-xl">
+                Total: {formatCurrency(getTotalCost())}
+              </h1>
+            </div>
+            <button className="fixed bottom-[15px] rounded-md bg-fuchsia-600 px-20 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl">
+              Place Order
+            </button>
           </>
         )}
-        
-          <div className="fixed bottom-[70px] w-full z-10 border-2 border-green-500 bg-white py-1 px-1 mx-4 text-center">
-            <h1 className="text-xl">Total: {formatCurrency(getTotalCost())}</h1>
-          </div>
-          <button className="fixed bottom-[15px] rounded-md bg-fuchsia-600 py-2 px-20 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl">
-            Place Order
-          </button>
-        
-        {/* <div className="flex flex-col items-center justify-center">
-          <h1 className="text-xl">Total: {formatCurrency(getTotalCost())}</h1>
-          <button className="mb-8 mt-4 w-full rounded-md bg-fuchsia-600 p-3 px-3 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl lg:w-[500px]">
-            Place Order
-          </button>
-        </div> */}
       </div>
     </>
   );
