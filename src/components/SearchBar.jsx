@@ -60,7 +60,7 @@ export default function SearchBar() {
   return (
     <>
       {/* Search Bar */}
-      <div className="fixed top-32 md:top-[70px] w-full border border-y-gray-400 border-y-2 z-10 shadow-lg">
+      <div className="fixed top-[80px] xs:top-[50px] w-full border border-y-gray-400 border-y-2 z-10 shadow-lg">
         <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
           <input
             type="text"
@@ -78,14 +78,14 @@ export default function SearchBar() {
                 className="m-1 p-2 cursor-pointer items-center rounded bg-green-600 hover:bg-green-500
                hover:scale-105 transition-all duration-200"
               >
-                <BsSearch size={25} color="white" />
+                <BsSearch size={15} color="white" />
               </div>
             ) : (
               <div
                 className="m-1 p-2 inline-flex cursor-pointer items-center rounded bg-fuchsia-600 hover:bg-fuchsia-400
                hover:scale-105 transition-all duration-200"
               >
-                <IoMdClose size={25} color="white" onClick={handleClose} />
+                <IoMdClose size={15} color="white" onClick={handleClose} />
               </div>
             )}
           </div>

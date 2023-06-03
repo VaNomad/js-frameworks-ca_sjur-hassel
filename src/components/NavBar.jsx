@@ -11,10 +11,10 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="fixed top-0 z-10 flex h-[130px] w-full items-center justify-between bg-white px-7 py-5 shadow-lg shadow-fuchsia-50 md:h-[70px]">
+      <nav className="fixed top-0 z-10 flex h-[80px] w-full items-center justify-between bg-white px-5 py-2 shadow-lg shadow-fuchsia-50 xs:h-[50px]">
         {/* Left Box */}
-        <div className="h-full md:w-6/12 lg:w-3/5 md:justify-center">
-          <ul className="flex h-full flex-col justify-between lg:justify-around md:flex-row md:items-center">
+        <div className="h-full xs:w-6/12 lg:w-3/5">
+          <ul className="h-full flex flex-col justify-around text-sm xs:flex-row xs:items-center lg:justify-around">
             <li className="min-w-[80px]">
               <NavLink
                 to="/"
@@ -48,22 +48,22 @@ export default function NavBar() {
           </ul>
         </div>
         {/* Right Box */}
-        <div className="flex h-full flex-col justify-between md:w-1/3 md:flex-row-reverse">
+        <div className="flex h-full flex-col xs:justify-around xs:w-1/2 xs:flex-row-reverse">
           <div className="relative flex justify-end">
             <Link to="/checkout">
               <BsBag size={25} />
               <div className={productsCount ? "glowing" : "notglowing"}></div>
-              <div className="absolute bottom-[-15px] right-[-12px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-green-600 md:bottom-[-9px]"></div>
+              <div className="absolute bottom-[-15px] right-[-12px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-green-600 xs:bottom-[-5px]"></div>
               <div className="overlay-number">{productsCount}</div>
             </Link>
           </div>
           {/* Logo */}
-          <div className="relative">
+          <div className="">
             <Link to={"/"}>
-              <h1 className="bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text pb-2 font-exa text-base xxs:text-2xl font-black uppercase tracking-wider text-transparent">
+              <h1 className="me-10 xs:me-0 bg-gradient-to-b from-violet-800 to-fuchsia-600 bg-clip-text pb-2 font-exa text-xl font-black uppercase tracking-wider text-transparent">
                 Vespera
               </h1>
-              <h2 className="text-sm flex absolute right-0 top-4 xxs:top-5 items-center justify-center tracking-wider md:justify-end">
+              <h2 className="relative right-[-28px] top-[-13px] flex items-center justify-center text-xs tracking-wider">
                 e-commerce
               </h2>
             </Link>
