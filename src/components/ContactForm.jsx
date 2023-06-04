@@ -1,79 +1,95 @@
 import { useState } from "react";
-// import { BASE_URL } from "../constants/url";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactForm() {
-  const [fullName, setFullName] = useState(""); 
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState(""); 
-  const [message, setMessage] = useState(""); 
-  const [errors, setErrors] = useState({})
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   function validateForm() {
-    const errors = {};
+    const newErrors = {};
 
     if (fullName.trim().length < 3) {
-      errors.fullName = "Your full name must have at least 3 characters";
+      newErrors.fullName = "Full name must have at least 3 characters";
+    } else {
+      newErrors.fullName = "";
     }
-    if (validEmail(email)) {
-      errors.mail = "Invalid email address";
+    if (!validEmail(email)) {
+      newErrors.email = "Invalid email address";
+    } else {
+      newErrors.email = "";
     }
     if (subject.trim().length < 3) {
-      errors.subject = "The subject needs to have at least 3 characters"
+      newErrors.subject = "Subject needs to have at least 3 characters";
+    } else {
+      newErrors.subject = "";
     }
     if (message.trim().length < 3) {
-      errors.message = "Your message must contain at least 3 characters"
+      newErrors.message = "Message must contain at least 3 characters";
+    } else {
+      newErrors.message = "";
     }
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => error === "");
   }
 
   function validEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); 
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  function onSubmit(data) {
-    if (validateForm && onsubmit) {
-      alert("Success")
-      console.log(data)
+  function onSubmit(e) {
+    e.preventDefault();
+
+    if (validateForm()) {
+      const formData = {
+        fullName,
+        email,
+        subject,
+        message,
+      };
+      console.log(formData);
+      toast.success("Your Message Has Been Sent!", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+
+      // Clear form inputs
+      setFullName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
     }
   }
-
-  // function onSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     const body = {
-  //       fullName,
-  //       email,
-  //       subject,
-  //       message,
-  //     };
-
-  //     fetch(BASE_URL, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(body),
-  //     })
-  //       .then((response) => response.json())
-  //       .then((data) => console.log(data))
-  //       .catch((error) => console.error(error));
-  //   }
-    
-  // }
 
   function onInputChange(e) {
     const { id, value } = e.target;
 
     if (id === "fullName") {
       setFullName(value);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        fullName: value.trim().length < 3 ? "Type at least 3 characters" : "",
+      }));
     } else if (id === "email") {
       setEmail(value);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: !validEmail(value) ? "Invalid email address" : "",
+      }));
     } else if (id === "subject") {
       setSubject(value);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        subject: value.trim().length < 3 ? "Type at least 3 characters" : "",
+      }));
     } else if (id === "message") {
       setMessage(value);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        message: value.trim().length < 3 ? "Type at least 3 characters" : "",
+      }));
     }
   }
 
@@ -81,57 +97,82 @@ export default function ContactForm() {
     <div className="flex h-screen items-center justify-center">
       <form
         onSubmit={onSubmit}
-        className="flex w-2/3 flex-col justify-center rounded-xl px-8 shadow-xl"
+        className="flex w-2/3 flex-col justify-center rounded-xl p-8 shadow-xl"
       >
-        <label htmlFor="fullName">Full Name</label>
-        <input
-          type="text"
-          id="fullName"
-          value={fullName}
-          placeholder="Your full Name"
-          onChange={onInputChange}
-          minLength={3}
-          required
-          className="mb-4 rounded-md border border-gray-300 p-2"
-        />
-        {errors.fullName && <p>{errors.fullName}</p>}
+        <div className="flex h-[100px] flex-col">
+          <label htmlFor="fullName" className="text-lg font-bold text-gray-600">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            value={fullName}
+            placeholder="Your full Name"
+            onChange={onInputChange}
+            minLength={3}
+            required
+            className="rounded-md border border-gray-300 p-2"
+          />
+          {errors.fullName && (
+            <p className="animate-pulse text-fuchsia-600">{errors.fullName}</p>
+          )}
+        </div>
 
-        <label htmlFor="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          placeholder="Your E-mail"
-          onChange={onInputChange}
-          required
-          className="mb-4 rounded-md border border-gray-300 p-2"
-        />
-        {errors.email && <p>{errors.email}</p>}
+        <div className="flex h-[100px] flex-col">
+          <label htmlFor="email" className="text-lg font-bold text-gray-600">
+            E-mail
+          </label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            placeholder="Your E-mail"
+            onChange={onInputChange}
+            required
+            className="rounded-md border border-gray-300 p-2"
+          />
+          {errors.email && (
+            <p className="animate-pulse text-fuchsia-600">{errors.email}</p>
+          )}
+        </div>
 
-        <label htmlFor="subject">Subject</label>
-        <input
-          type="text"
-          id="subject"
-          value={subject}
-          placeholder="Message Subject"
-          onChange={onInputChange}
-          minLength={3}
-          required
-          className="mb-4 rounded-md border border-gray-300 p-2"
-        />
-        {errors.subject && <p>{errors.subject}</p>}
+        <div className="flex h-[100px] flex-col">
+          <label htmlFor="subject" className="text-lg font-bold text-gray-600">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            value={subject}
+            placeholder="Message Subject"
+            onChange={onInputChange}
+            minLength={3}
+            required
+            className="rounded-md border border-gray-300 p-2"
+          />
+          {errors.subject && (
+            <p className="animate-pulse text-fuchsia-600">{errors.subject}</p>
+          )}
+        </div>
 
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          value={message}
-          placeholder="Your Message"
-          onChange={onInputChange}
-          minLength={3}
-          required
-          className="mb-4 resize-none rounded-md border border-gray-300 p-2"
-        ></textarea>
-        {errors.message && <p>{errors.message}</p>}
+        <div className="flex h-[180px] flex-col">
+          <label htmlFor="message" className="text-lg font-bold text-gray-600">
+            Message
+          </label>
+          <textarea
+            id="message"
+            value={message}
+            rows={4}
+            placeholder="Your Message"
+            onChange={onInputChange}
+            minLength={3}
+            required
+            className="resize-none rounded-md border border-gray-300 p-2"
+          ></textarea>
+          {errors.message && (
+            <p className="animate-pulse text-fuchsia-600">{errors.message}</p>
+          )}
+        </div>
 
         <button
           type="submit"
@@ -141,6 +182,7 @@ export default function ContactForm() {
           Submit
         </button>
       </form>
+      <ToastContainer theme="light" />
     </div>
   );
 }
