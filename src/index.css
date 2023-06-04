@@ -43,3 +43,8 @@
 .overlay-number {
   @apply absolute w-[25px] h-[25px] rounded-full bg-transparent text-white flex justify-center items-center right-[-12px] bottom-[-15px] xs:bottom-[-5px]
 }
+
+/* Toast message —————————————————————————————————————————— */
+.toastStyle {
+  @apply border-[3px] border-lime-300 rounded-xl font-bold shadow-xl
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactForm() {
@@ -53,6 +53,7 @@ export default function ContactForm() {
       console.log(formData);
       toast.success("Your Message Has Been Sent!", {
         position: toast.POSITION.BOTTOM_CENTER,
+        className: 'toastStyle'
       });
 
       // Clear form inputs
@@ -182,7 +183,7 @@ export default function ContactForm() {
           Submit
         </button>
       </form>
-      <ToastContainer theme="light" />
+      <ToastContainer theme="light" transition={Zoom} />
     </div>
   );
 }
