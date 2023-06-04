@@ -97,7 +97,7 @@ export default function ContactForm() {
     <div className="flex h-screen items-center justify-center">
       <form
         onSubmit={onSubmit}
-        className="flex w-2/3 flex-col justify-center rounded-xl p-8 shadow-xl"
+        className="flex w-[600px] flex-col justify-center rounded-xl p-8 m-8 shadow-xl"
       >
         <div className="flex h-[100px] flex-col">
           <label htmlFor="fullName" className="text-lg font-bold text-gray-600">
