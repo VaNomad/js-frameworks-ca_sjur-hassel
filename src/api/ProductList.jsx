@@ -46,9 +46,3 @@ export default function ProductList() {
   );
 }
 
-// const [products, setProducts] = useState([]);  LINE 11
-// setProducts(json);   LINE 24
-//  <SearchBar />    LINE 41 & 42
-// { products.length > 0 && <Card products={ products } title="All Products" />; }
-
-
