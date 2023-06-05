@@ -117,12 +117,15 @@ export default function CheckOut() {
               </h1>
             </div>
             <Link to="/checkoutsuccess">
-              <button className="fixed bottom-[65px] w-[250px] rounded-md bg-fuchsia-600 px-10 py-2 text-xl font-light uppercase tracking-widest text-white shadow-lg transition-all duration-200 ease-in-out hover:border-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl md:w-[500px]">
+              <button
+                onClick={() => cart.deleteAllFromCart()}
+                className="fixed bottom-[65px] left-0 right-0 mx-auto w-[250px] rounded-md bg-fuchsia-600 px-10 py-2 text-xl font-light uppercase tracking-widest text-white shadow-lg transition-all duration-200 ease-in-out hover:border-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl md:w-[500px]"
+              >
                 Place Order
               </button>
             </Link>
             <Link to={"/"}>
-              <button className="fixed bottom-[10px] w-[250px] rounded-md bg-lime-400 px-10 py-2 text-xl font-light uppercase tracking-wide transition-all duration-200 ease-in-out hover:bg-lime-300 hover:font-bold hover:shadow-xl md:w-[500px]">
+              <button className="fixed bottom-[10px] left-0 right-0 mx-auto w-[250px] rounded-md bg-lime-400 px-10 py-2 text-xl font-light uppercase tracking-wide transition-all duration-200 ease-in-out hover:bg-lime-300 hover:font-bold hover:shadow-xl md:w-[500px]">
                 Back to Shop
               </button>
             </Link>

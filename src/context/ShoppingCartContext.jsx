@@ -63,13 +63,17 @@ export function ShoppingCartProvider({ children }) {
     );
   }
 
+  function deleteAllFromCart() {
+    setCartProducts([]);
+  }
+
   // The total price for the Cart contents
   function getTotalCost() {
     let totalCost = 0;
     cartProducts.forEach((cartItem) => {
       let productPrice = cartItem.discountedPrice;
       if (!cartItem.discountedPrice) {
-        productPrice = cartItem.price
+        productPrice = cartItem.price;
       }
       totalCost += productPrice * cartItem.quantity;
     });
@@ -95,6 +99,7 @@ export function ShoppingCartProvider({ children }) {
     deleteFromCart, // Deletes all items of a product
     getTotalCost, // The total price for the Cart contents
     discountPercentage, // The discount in percent
+    deleteAllFromCart, // Deletes all items of all products
   };
 
   return (
