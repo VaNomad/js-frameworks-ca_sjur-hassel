@@ -3,11 +3,10 @@ import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-// import { useProductListContext } from "../context/ProductListContext";
+// import ProductList from "../api/ProductList";
 
 // Component —————————————————————————————————————————————————————
 export default function Search({onSearch}) {
-  // const { products } = useProductListContext();
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(-1);
@@ -17,13 +16,13 @@ export default function Search({onSearch}) {
   const handleInputChange = (e) => {
     setSearch(e.target.value);
     onSearch(e.target.value);
-    // filterProducts(e.target.value);
   };
 
   const handleClose = () => {
     setSearch("");
     setSearchData([]);
     setSelectedItem(-1);
+    onSearch('');
   };
 
   const handleOnClick = () => {
@@ -32,21 +31,6 @@ export default function Search({onSearch}) {
       navigate(`/details/${selectedData.id}`);
     }
   };
-
-  // Filter function
-  // function filterProducts(search) {
-  //   if (search.trim() === "") {
-  //     setSearchData([]);
-  //   } else {
-  //     const filteredProducts = products.filter((product) => {
-  //       if (product.title.toLowerCase().includes(search.toLowerCase())) {
-  //         return product;
-  //       }
-  //     });
-  //     setSearchData(filteredProducts);
-  //   }
-  // }
-
 
   return (
     <>
