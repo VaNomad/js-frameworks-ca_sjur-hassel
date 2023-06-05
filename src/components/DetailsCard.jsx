@@ -1,10 +1,8 @@
 import { MdArrowBack } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
-// import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils/FormatCurrency";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
-// import { ProductListContext } from "../context/ProductListContext";
 import { useContext } from "react";
 
 
@@ -23,7 +21,6 @@ export default function DetailsCard({data}) {
     price,
     discountedPrice,
   } = data;
-  // const quantity = 0;
 
   return (
     <div className="flex h-screen flex-col">

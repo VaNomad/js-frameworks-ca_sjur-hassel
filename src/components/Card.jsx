@@ -2,33 +2,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Search from "./Search";
 
-
-
 export default function Card({ products, title }) {
   const [search, setSearch] = useState("");
 
-  console.log(products);
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
 
-
-   const filteredProducts = products.filter((product) =>
-     product.title.toLowerCase().includes(search.toLowerCase())
-   );
-  // function filterProducts(search) {
-  //   if (search.trim() === "") {
-  //     setSearchData([]);
-  //   } else {
-  //     const filteredProducts = products.filter((product) => {
-  //       if (product.title.toLowerCase().includes(search.toLowerCase())) {
-  //         return product;
-  //       }
-  //     });
-  //     setSearchData(filteredProducts);
-  //   }
-  // }
-
-  // if (!products) {
-  //   return null;
-  // }
   return (
     <>
       <Search onSearch={setSearch} />

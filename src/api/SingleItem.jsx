@@ -21,7 +21,6 @@ export default function SingleItem() {
         setIsError(false);
 
         const url = `${ID_URL}${id}`;
-        // const url = `https://api.noroff.dev/api/v1/online-shop/${id}`;
         const response = await fetch(url);
         const json = await response.json();
 
@@ -49,21 +48,3 @@ export default function SingleItem() {
     <DetailsCard data={data}/>
   );
 }
-
-// import { MdArrowBack } from "react-icons/md"; LINE 6
-// import { BsTrash } from "react-icons/bs";
-// import { Link } from "react-router-dom";
-// import { formatCurrency } from "../utils/FormatCurrency";
-
-// const navigate = useNavigate(); LINE 14
-
- // const {         AFTER 3 IFS, BEFORE RETURN
-  //   title,
-  //   imageUrl,
-  //   description,
-  //   reviews,
-  //   tags,
-  //   price,
-  //   discountedPrice,
-  // } = item;
-  // const quantity = 1;

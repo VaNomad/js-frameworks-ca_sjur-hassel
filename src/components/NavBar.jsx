@@ -3,10 +3,10 @@ import { BsBag } from "react-icons/bs";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
 
-
 export default function NavBar() {
   const cart = useContext(ShoppingCartContext);
 
+  // Move this variable into shoppingCartContext.jsx
   const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
   return (
