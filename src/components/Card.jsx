@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Search from "./Search";
 
-export default function Card({ products, title }) {
+export default function Card({ products }) {
   const [search, setSearch] = useState("");
 
   const filteredProducts = products.filter((product) =>
@@ -13,8 +13,8 @@ export default function Card({ products, title }) {
     <>
       <Search onSearch={setSearch} />
       <div className="mt-[110px] xs:mt-[80px]">
-        <h2 className="mb-2 mt-8 bg-black p-3 text-center font-semibold uppercase text-white">
-          {title}
+        <h2 className="mb-2 mt-8 p-3 text-center font-exa text-xl uppercase text-black">
+          {search === "" ? ("All Products") : ("Your Search")}
         </h2>
         <div className="">
           <div className="mb-8 grid grid-cols-1 items-center justify-center gap-3 text-black sm:grid-cols-2 lg:grid-cols-3 lg:gap-9">
