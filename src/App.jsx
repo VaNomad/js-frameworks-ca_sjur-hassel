@@ -9,7 +9,7 @@ import NavBar from "./components/NavBar";
 import CheckOut from "./pages/CheckOut";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import { ProductListProvider } from "./context/ProductListContext";
-// import ProductList from "./api/ProductList";
+import CheckOutSuccess from "./pages/CheckOutSuccess";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<CheckOut />} />
+            <Route path="/checkoutsuccess" element={<CheckOutSuccess />} />
             <Route path="/details/:id" element={<Details />} />
             <Route path="*" element={<Four04 />} />
           </Routes>

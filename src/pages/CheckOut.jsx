@@ -2,6 +2,7 @@ import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { BsTrash } from "react-icons/bs";
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { formatCurrency } from "../utils/FormatCurrency";
+import { Link } from "react-router-dom";
 
 export default function CheckOut() {
   const { items, getTotalCost, discountPercentage } = useShoppingCartContext();
@@ -22,14 +23,14 @@ export default function CheckOut() {
           <>
             <div className="mt-[90px] flex flex-col justify-center lg:items-center">
               {/* Checkout Label  */}
-              <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 lg:px-2 sm:py-3 lg:py-2 sm:text-base">
+              <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 sm:py-3 sm:text-base lg:px-2 lg:py-2">
                 <span>check </span>
                 <span>out</span>
               </div>
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="mb-4 rounded-lg flex flex-col items-center justify-between p-3 md:w-[500px] md:flex-row lg:w-[900px] xl:w-[1100px] shadow-lg"
+                  className="mb-4 flex flex-col items-center justify-between rounded-lg p-3 shadow-lg md:w-[500px] md:flex-row lg:w-[900px] xl:w-[1100px]"
                 >
                   {/* Image */}
                   <div className="relative">
@@ -51,10 +52,12 @@ export default function CheckOut() {
                         </div>
                       )}
                   </div>
-                  <div className="flex flex-col gap-4 md:w-1/2 lg:flex-row lg:justify-around lg:w-2/3">
+                  <div className="flex flex-col gap-4 md:w-1/2 lg:w-2/3 lg:flex-row lg:justify-around">
                     {/* Title & Price */}
                     <div className="flex flex-col items-center">
-                      <h1 className="text-lg text-gray-500 mb-4">{item.title}</h1>
+                      <h1 className="mb-4 text-lg text-gray-500">
+                        {item.title}
+                      </h1>
 
                       {item.discountedPrice &&
                       item.discountedPrice < item.price ? (
@@ -65,7 +68,9 @@ export default function CheckOut() {
                           </h2>
                         </div>
                       ) : (
-                        <h2 className="text-xl">{formatCurrency(item.discountedPrice)}</h2>
+                        <h2 className="text-xl">
+                          {formatCurrency(item.discountedPrice)}
+                        </h2>
                       )}
                     </div>
                     <div className="mt-1 flex flex-col items-center gap-2 md:gap-6">
@@ -95,7 +100,7 @@ export default function CheckOut() {
                       <div>
                         <button
                           onClick={() => cart.deleteFromCart(item.id)}
-                          className="my-2 flex h-9 w-9 items-center justify-center rounded bg-red-600 text-white md:mt-0 lg:mt-0 shadow-md"
+                          className="my-2 flex h-9 w-9 items-center justify-center rounded bg-red-600 text-white shadow-md md:mt-0 lg:mt-0"
                         >
                           <BsTrash size={25} />
                         </button>
@@ -105,15 +110,22 @@ export default function CheckOut() {
                 </div>
               ))}
             </div>
-            <div className="h-[100px]"></div>
-            <div className="fixed bottom-[70px] z-10 mx-4 w-full border-2 border-green-500 bg-white px-1 py-1 text-center">
-              <h1 className="text-xl">
+            <div className="h-[160px]"></div>
+            <div className="fixed bottom-[120px] z-10 mx-4 w-full border-y-2 border-gray-400 bg-white px-10 py-2 text-center ">
+              <h1 className="text-base">
                 Total: {formatCurrency(getTotalCost())}
               </h1>
             </div>
-            <button className="fixed bottom-[15px] rounded-md bg-fuchsia-600 px-20 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl">
-              Place Order
-            </button>
+            <Link to="/checkoutsuccess">
+              <button className="fixed bottom-[65px] w-[250px] rounded-md bg-fuchsia-600 px-10 py-2 text-xl font-light uppercase tracking-widest text-white shadow-lg transition-all duration-200 ease-in-out hover:border-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl md:w-[500px]">
+                Place Order
+              </button>
+            </Link>
+            <Link to={"/"}>
+              <button className="fixed bottom-[10px] w-[250px] rounded-md bg-lime-400 px-10 py-2 text-xl font-light uppercase tracking-wide transition-all duration-200 ease-in-out hover:bg-lime-300 hover:font-bold hover:shadow-xl md:w-[500px]">
+                Back to Shop
+              </button>
+            </Link>
           </>
         )}
       </div>

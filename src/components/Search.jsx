@@ -35,7 +35,8 @@ export default function Search({onSearch}) {
   return (
     <>
       {/* Search Bar */}
-      <div className="fixed top-[80px] z-10 w-full md:w-[520px] lg:w-[840px] border border-y-2 border-y-gray-400 md:border-none shadow-lg xs:top-[50px] md:top-[60px]">
+      <div className="fixed top-[80px] z-10 w-full md:w-[520px] lg:w-[840px
+      ] border border-y-2 border-y-gray-400 md:border-none shadow-lg xs:top-[50px] md:top-[60px]">
         <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
           <input
             type="text"
