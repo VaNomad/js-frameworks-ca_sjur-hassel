@@ -41,7 +41,7 @@
   @apply absolute w-[25px] h-[25px] rounded-full bg-gray-300 border border-gray-400 text-black flex justify-center items-center right-[-12px] bottom-[-15px] xs:bottom-[-5px]
 }
 .overlay-number {
-  @apply absolute w-[25px] h-[25px] rounded-full bg-transparent text-white flex justify-center items-center right-[-12px] bottom-[-15px] xs:bottom-[-5px]
+  @apply absolute w-[25px] h-[25px] rounded-full bg-transparent text-black flex justify-center items-center right-[-12px] bottom-[-15px] xs:bottom-[-5px]
 }
 
 /* Toast message —————————————————————————————————————————— */

@@ -53,7 +53,7 @@ export default function NavBar() {
             <Link to="/checkout">
               <BsBag size={25} />
               <div className={productsCount ? "glowing" : "notglowing"}></div>
-              <div className="absolute bottom-[-15px] right-[-12px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-green-600 xs:bottom-[-5px]"></div>
+              <div className="absolute bottom-[-15px] right-[-12px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-lime-400 border border-lime-500 xs:bottom-[-5px]"></div>
               <div className="overlay-number">{productsCount}</div>
             </Link>
           </div>
