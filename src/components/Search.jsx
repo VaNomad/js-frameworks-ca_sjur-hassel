@@ -35,7 +35,7 @@ export default function Search({onSearch}) {
   return (
     <>
       {/* Search Bar */}
-      <div className="fixed top-[80px] z-10 w-full border border-y-2 border-y-gray-400 shadow-lg xs:top-[50px]">
+      <div className="fixed top-[80px] z-10 w-full md:w-[520px] lg:w-[840px] border border-y-2 border-y-gray-400 md:border-none shadow-lg xs:top-[50px] md:top-[60px]">
         <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
           <input
             type="text"
@@ -50,10 +50,9 @@ export default function Search({onSearch}) {
           <div className="flex">
             {search === "" ? (
               <div
-                className="m-1 cursor-pointer items-center rounded bg-green-600 p-2 transition-all
-               duration-200 hover:scale-105 hover:bg-green-500"
+                className="m-1 items-center p-2"
               >
-                <BsSearch size={15} color="white" onClick={handleOnClick}/>
+                <BsSearch size={15} color="black" onClick={handleOnClick}/>
               </div>
             ) : (
               <div
