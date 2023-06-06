@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Reviews from "../utils/Reviews";
 
 export default function DetailsCard({ data }) {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function DetailsCard({ data }) {
   const productQuantity = cart.getCartContent(data.id);
   console.log(cart.items);
 
-  const { title, imageUrl, description, tags, price, discountedPrice } = data;
+  const { title, imageUrl, description, tags, price, discountedPrice, rating, reviews } = data;
 
   return (
     <div className="flex h-screen flex-col">
@@ -41,8 +42,12 @@ export default function DetailsCard({ data }) {
             <h1 className="border-b border-gray-500 p-3 text-3xl">{title}</h1>
             <div className="p-3">{description}</div>
             <div className="rounded-full bg-cyan-500 px-2 py-1 text-white">
-              # {tags}
+              <div>#{' '}{ tags }</div> 
             </div>
+            <div className="rounded-full bg-amber-500 px-2 py-1 text-white">
+              <div>*{' '}{ rating }</div> 
+            </div>
+            <div><Reviews reviews={reviews} /></div>
             <div className="hidden text-xl font-bold">{price}</div>
             <div className="p-3 text-2xl font-bold">
               {formatCurrency(discountedPrice)}
@@ -58,7 +63,9 @@ export default function DetailsCard({ data }) {
                       data.title,
                       data.imageUrl,
                       data.price,
-                      data.discountedPrice
+                      data.discountedPrice,
+                      data.rating,
+                      data.reviews,
                     )
                   }
                   className="w-full rounded-md bg-fuchsia-600 px-3 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl lg:w-[500px]"
