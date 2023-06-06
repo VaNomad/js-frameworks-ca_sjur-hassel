@@ -1,3 +1,4 @@
+import ArrowBack from "../components/ArrowBack";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { BsTrash } from "react-icons/bs";
 import { BiPlus, BiMinus } from "react-icons/bi";
@@ -17,11 +18,13 @@ export default function CheckOut() {
       <div className="flex flex-col items-center justify-center text-4xl font-bold text-black">
         {productsCount === 0 ? (
           <div className="flex h-screen items-center justify-center px-5 text-3xl md:text-5xl">
+            <ArrowBack />
             <h1>Your shopping cart is empty</h1>
           </div>
         ) : (
           <>
             <div className="mt-[90px] flex flex-col justify-center lg:items-center">
+              <ArrowBack />
               {/* Checkout Label  */}
               <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 sm:py-3 sm:text-base lg:px-2 lg:py-2">
                 <span>check </span>

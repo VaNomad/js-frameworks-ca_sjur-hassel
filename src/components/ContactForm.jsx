@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ArrowBack from "./ArrowBack";
 
 export default function ContactForm() {
   const [fullName, setFullName] = useState("");
@@ -96,9 +97,10 @@ export default function ContactForm() {
 
   return (
     <div className="flex h-screen items-center justify-center">
+      <ArrowBack />
       <form
         onSubmit={onSubmit}
-        className="flex w-[600px] flex-col justify-center rounded-xl p-8 m-8 shadow-xl"
+        className="flex w-[600px] flex-col justify-center rounded-xl p-8 mx-8 mt-[80px] shadow-xl"
       >
         <div className="flex h-[100px] flex-col">
           <label htmlFor="fullName" className="text-lg font-bold text-gray-600">
