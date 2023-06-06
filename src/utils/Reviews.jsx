@@ -1,6 +1,6 @@
-import StarRating from "./StarRating";
+import StarRating from "../utils/StarRating"
 
-export default function Reviews({ reviews, rating }) {
+export default function Reviews({ reviews, rating, }) {
   return (
     <div>
       {reviews.map((item, index) => {
@@ -9,7 +9,7 @@ export default function Reviews({ reviews, rating }) {
             <div className="flex justify-center ">
               <p>{item.username}</p>
               <span>
-                <StarRating rating={rating} />
+                <StarRating key={rating} />
               </span>
             </div>
             <div>{item.description}</div>

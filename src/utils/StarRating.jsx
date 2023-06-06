@@ -1,19 +1,21 @@
 import React from "react";
-import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-export default function StarRating ({ rating }) {
+export default function StarRating({ rating }) {
+  const hasHalfStar = rating % 1 !== 0 ? 1 : 0;
+  const filledStarsCount = Math.ceil(rating) - hasHalfStar;
+  const emptyStarsCount = 5 - Math.floor(rating) - hasHalfStar;
+
   const stars = [];
-  const hasHalfStar = rating % 1 !== 0;
-
-  for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-      stars.push(<FaStar key={i} />);
-    } else if (hasHalfStar) {
-      stars.push(<FaStarHalfAlt key={ i } />) * 1;
-    } else {
-      stars.push(<FaRegStar key={i} />);
-    }
+  for (let i = 0; i < filledStarsCount; i++) {
+    stars.push(<FaStar key={i} />);
+  }
+  if (hasHalfStar) {
+    stars.push(<FaStarHalfAlt key="half" />);
+  }
+  for (let i = 0; i < emptyStarsCount; i++) {
+    stars.push(<FaRegStar key="reg" />);
   }
 
-  return <div className="star-rating">{stars}</div>;
+  return <div className="flex text-black">{stars}</div>;
 }
