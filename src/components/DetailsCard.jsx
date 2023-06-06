@@ -1,14 +1,12 @@
-import { MdArrowBack } from "react-icons/md";
+import ArrowBack from "./ArrowBack";
 import { BsTrash } from "react-icons/bs";
 import { formatCurrency } from "../utils/FormatCurrency";
-import { useNavigate } from "react-router-dom";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Reviews from "../utils/Reviews";
 
 export default function DetailsCard({ data }) {
-  const navigate = useNavigate();
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getCartContent(data.id);
   console.log(cart.items);
@@ -19,11 +17,7 @@ export default function DetailsCard({ data }) {
     <div className="flex h-screen flex-col">
       <div className="">
         <div className="relative flex items-center justify-end py-2">
-          <MdArrowBack
-            onClick={() => navigate(-1)}
-            size={45}
-            className="fixed left-[-20px] top-[150px] mx-8 cursor-pointer rounded-full bg-white p-[8px] shadow-sm duration-300 ease-in-out hover:p-[7px] hover:shadow-xl sm:left-0 sm:top-[160px]"
-          />
+          <ArrowBack />
           <h2 className="fixed top-[155px] mb-2 bg-black px-6 py-2 text-center font-semibold uppercase text-white sm:top-[165px] md:absolute md:top-[60px] md:z-[-1]">
             Item Details
           </h2>
