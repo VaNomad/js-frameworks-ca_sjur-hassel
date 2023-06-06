@@ -27,10 +27,6 @@ export default {
       fontFamily: {
         exa: ['"Lexend Exa"', "sans-serif"],
       },
-      backgroundImage: {
-        beetle:
-          "url('http://lh4.ggpht.com/-uXFGVuWikTo/UFR9CXcy0dI/AAAAAAAAAdQ/CWI2AqeDquk/20120915140325.png')",
-      },
     },
   },
   plugins: [],
