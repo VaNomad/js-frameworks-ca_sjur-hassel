@@ -48,3 +48,7 @@
 .toastStyle {
   @apply border-[3px] border-lime-300 rounded-xl font-bold shadow-xl
 }
+
+.buttonNormal {
+  @apply lg:w-[500px] w-full rounded-md bg-fuchsia-600 bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
+}

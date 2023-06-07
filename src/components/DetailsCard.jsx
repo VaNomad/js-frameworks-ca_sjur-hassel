@@ -1,4 +1,3 @@
-
 import StarRatingAverage from "../utils/StarRatingAverage";
 import ArrowBack from "./ArrowBack";
 import { BsTrash } from "react-icons/bs";
@@ -34,30 +33,30 @@ export default function DetailsCard({ data, average }) {
           />
         </div>
         <div className="flex flex-col justify-center bg-gray-100 px-2">
-          <div className="mx-3 my-4 p-3 flex h-[400px] flex-col items-center justify-around rounded-xl shadow-xl">
+          <div className="mx-3 my-4 flex h-[400px] flex-col items-center justify-around rounded-xl p-3 shadow-xl">
             <div>
               <h1 className="border-b border-gray-500 p-3 text-2xl">{title}</h1>
               <div className="p-3 text-sm">{description}</div>
             </div>
-            <div className="flex-col flex-around flex items-center">
+            <div className="flex-around flex flex-col items-center">
               <div className="pb-2">
-                <h2 className="font-semibold text-sm">Avg Rating:</h2>
+                <h2 className="text-sm font-semibold">Avg Rating:</h2>
                 <div className="rounded-full bg-amber-500 px-2 py-1 text-center">
                   <StarRatingAverage ratings={average} />
                 </div>
               </div>
               <div className="pb-2">
-                <h2 className="font-semibold text-sm">Search Tags: </h2>
+                <h2 className="text-sm font-semibold">Search Tags: </h2>
                 <div className="rounded-full bg-cyan-500 px-2 py-1 text-white">
                   # {tags}
                 </div>
               </div>
             </div>
-            <div className="p-3">
+            <div className="p-3 text-sm">
               <Reviews reviews={reviews} />
             </div>
             <p className="hidden">{price}</p>
-            <div className="mb-8 text-2xl font-bold">
+            <div className="mb-8 text-xl font-bold">
               {formatCurrency(discountedPrice)}
             </div>
           </div>
@@ -76,7 +75,7 @@ export default function DetailsCard({ data, average }) {
                       data.reviews
                     )
                   }
-                  className="w-full rounded-md bg-fuchsia-600 px-3 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl lg:w-[500px]"
+                  className="buttonNormal"
                 >
                   Add To Cart
                 </button>
