@@ -20,7 +20,7 @@ export default function StarRating({ rating }) {
     stars.push(<FaStarHalfAlt key="half" />);
   }
   for (let i = 0; i < emptyStarsCount; i++) {
-    stars.push(<FaRegStar key="reg" />);
+    stars.push(<FaRegStar key={i} />);
   }
 
   return <div className="flex gap-2">{stars}</div>;
