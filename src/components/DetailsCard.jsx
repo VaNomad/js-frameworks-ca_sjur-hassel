@@ -12,33 +12,41 @@ export default function DetailsCard({ data, average }) {
   const productQuantity = cart.getCartContent(data.id);
   console.log(cart.items);
 
-  const { title, imageUrl, description, tags, price, discountedPrice, rating, reviews } = data;
+  const {
+    title,
+    imageUrl,
+    description,
+    tags,
+    price,
+    discountedPrice,
+    rating,
+    reviews,
+  } = data;
 
   return (
-    <div className="flex h-screen flex-col">
-      <div className="">
-        <div className="relative flex items-center justify-end py-2">
-          <ArrowBack />
-          <h2 className="fixed top-[155px] mb-2 bg-black px-6 py-2 text-center font-semibold uppercase text-white sm:top-[165px] md:absolute md:top-[60px] md:z-[-1]">
-            Item Details
-          </h2>
+    <div className="flex h-screen w-full flex-col">
+      <div className="relative flex items-center justify-end md:justify-center">
+        <ArrowBack />
+        <div className="absolute top-[90px] mb-2 bg-black p-2 text-center text-xs font-semibold uppercase text-white xs:text-sm md:top-[60px]">
+          <p>Item</p>
+          <p>Details</p>
         </div>
       </div>
-      <div className="flex flex-col justify-center md:flex-row">
-        <div className="mt-[50px] shadow-xl">
+      <div className="flex flex-col justify-center md:h-screen md:flex-row">
+        <div className="mt-[60px] xs:mt-[35px] md:mt-[50px]">
           <img
             src={imageUrl}
             alt={title}
-            className="h-[300px] w-full object-cover"
+            className="w-full object-cover md:h-screen"
           />
         </div>
-        <div className="flex flex-col justify-center bg-gray-100 px-2">
-          <div className="mx-3 my-4 flex h-[400px] flex-col items-center justify-around rounded-xl p-3 shadow-xl">
-            <div>
+        <div className="flex flex-col justify-center bg-gray-100">
+          <div className="mx-3 flex flex-col items-center justify-around md:gap-5 md:px-2 md:py-4">
+            <div className="miniCard mb-2 w-full">
               <h1 className="border-b border-gray-500 p-3 text-2xl">{title}</h1>
               <div className="p-3 text-sm">{description}</div>
             </div>
-            <div className="flex-around flex flex-col items-center">
+            <div className="flex-around miniCard flex w-full flex-col items-center xs:flex-row xs:justify-around">
               <div className="pb-2">
                 <h2 className="text-sm font-semibold">Avg Rating:</h2>
                 <div className="rounded-full bg-amber-500 px-2 py-1 text-center">
@@ -52,17 +60,17 @@ export default function DetailsCard({ data, average }) {
                 </div>
               </div>
             </div>
-            <div className="p-3 text-sm">
+            <div className="w-full pb-3 text-sm">
               <Reviews reviews={reviews} />
             </div>
             <p className="hidden">{price}</p>
-            <div className="mb-8 text-xl font-bold">
+            <div className="mb-4 text-xl font-bold">
               {formatCurrency(discountedPrice)}
             </div>
           </div>
           <div>
             {productQuantity === 0 ? (
-              <div className="p-3">
+              <div className="mb-3 flex justify-center px-3">
                 <button
                   onClick={() =>
                     cart.addOneToCart(
@@ -75,7 +83,7 @@ export default function DetailsCard({ data, average }) {
                       data.reviews
                     )
                   }
-                  className="buttonNormal"
+                  className="buttonNormal shadow-lg"
                 >
                   Add To Cart
                 </button>

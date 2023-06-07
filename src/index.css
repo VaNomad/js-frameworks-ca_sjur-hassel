@@ -27,6 +27,11 @@
   @apply scale-50 text-white opacity-100 bg-black rounded-xl py-[30px] px-[50px];
 }
 
+/* Mini Card —————————————————————————————————————————— */
+.miniCard {
+  @apply p-2 shadow-lg rounded-xl
+}
+
 /* Navigation —————————————————————————————————————————— */
 .active {
   @apply border-b border-r border-black pt-1 pe-3 rounded-tr-full transition-all duration-150 font-bold
@@ -50,5 +55,5 @@
 }
 
 .buttonNormal {
-  @apply lg:w-[500px] w-full rounded-md bg-fuchsia-600 bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
+  @apply max-w-[300px] w-full rounded-md bg-fuchsia-600 bg-gradient-to-b from-violet-800 to-fuchsia-600 px-3 py-2 text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
 }
