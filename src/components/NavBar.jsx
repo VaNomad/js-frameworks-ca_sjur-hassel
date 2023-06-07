@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BsBag } from "react-icons/bs";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
@@ -70,7 +70,7 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-      <Outlet />
+      {/* <Outlet /> */}
     </>
   );
 }

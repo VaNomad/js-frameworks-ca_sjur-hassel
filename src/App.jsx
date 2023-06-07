@@ -5,28 +5,23 @@ import Contact from "./pages/Contact";
 import Details from "./pages/Details";
 import Four04 from "./pages/Four04";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
 import CheckOut from "./pages/CheckOut";
-import { ShoppingCartProvider } from "./context/ShoppingCartContext";
-import { ProductListProvider } from "./context/ProductListContext";
 import CheckOutSuccess from "./pages/CheckOutSuccess";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
     <>
-      <ProductListProvider>
-        <ShoppingCartProvider>
-          <NavBar />
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/checkout" element={<CheckOut />} />
-            <Route path="/checkoutsuccess" element={<CheckOutSuccess />} />
-            <Route path="/details/:id" element={<Details />} />
-            <Route path="*" element={<Four04 />} />
-          </Routes>
-        </ShoppingCartProvider>
-      </ProductListProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/checkoutsuccess" element={<CheckOutSuccess />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="*" element={<Four04 />} />
+        </Route>
+      </Routes>
     </>
   );
 }
