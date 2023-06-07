@@ -24,13 +24,16 @@ export default function Card({ products }) {
           <div className="relative mb-8 grid grid-cols-1 items-center justify-center gap-3 text-black sm:grid-cols-2 lg:grid-cols-3 lg:gap-9">
             {filteredProducts.map(
               ({ id, title, imageUrl, price, discountedPrice }) => (
-                <Link to={`/details/${id}`} key={id}>
+                <Link
+                  to={`/details/${id}`}
+                  key={id}
+                >
                   <div className="card-zoom m-3 flex h-full w-full flex-col items-center justify-center border border-gray-400 p-4 text-center">
                     <div className="card-zoom-image">
                       <img src={imageUrl} alt={title} />
                     </div>
-                    <h2 className="card-zoom-text font-bold">{title}</h2>
-                    <div className="absolute left-1 top-1 px-2 py-1 flex items-center justify-center rounded-full border bg-white shadow-lg text-sm">
+                    <h2 className="card-zoom-text">{title}</h2>
+                    <div className="absolute left-1 top-1 flex items-center justify-center rounded-full border bg-white px-2 py-1 text-sm shadow-lg">
                       <h2 className=" font-bold">
                         {formatCurrency(discountedPrice)}
                       </h2>
