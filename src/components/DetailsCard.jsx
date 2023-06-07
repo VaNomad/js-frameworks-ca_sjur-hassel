@@ -56,6 +56,7 @@ export default function DetailsCard({ data, average }) {
             <div className="p-3">
               <Reviews reviews={reviews} />
             </div>
+            <p className="hidden">{price}</p>
             <div className="mb-8 text-2xl font-bold">
               {formatCurrency(discountedPrice)}
             </div>
