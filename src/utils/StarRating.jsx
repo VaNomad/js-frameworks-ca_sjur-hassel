@@ -6,6 +6,12 @@ export default function StarRating({ rating }) {
   const filledStarsCount = Math.ceil(rating) - hasHalfStar;
   const emptyStarsCount = 5 - Math.floor(rating) - hasHalfStar;
 
+  console.log(hasHalfStar)
+  console.log(filledStarsCount)
+  console.log(emptyStarsCount)
+  console.log(typeof rating)
+  console.log(rating)
+
   const stars = [];
   for (let i = 0; i < filledStarsCount; i++) {
     stars.push(<FaStar key={i} />);
@@ -17,5 +23,5 @@ export default function StarRating({ rating }) {
     stars.push(<FaRegStar key="reg" />);
   }
 
-  return <div className="flex text-black">{stars}</div>;
+  return <div className="flex gap-2">{stars}</div>;
 }

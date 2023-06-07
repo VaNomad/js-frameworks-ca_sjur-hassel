@@ -6,13 +6,13 @@ export default function Reviews({ reviews, rating, }) {
       {reviews.map((item, index) => {
         return (
           <div key={index}>
-            <div className="flex justify-center ">
-              <p>{item.username}</p>
-              <span>
-                <StarRating key={rating} />
-              </span>
+            <div className="flex flex-col justify-center ">
+              <div className="flex justify-start gap-3">
+                <p>{item.username}</p>
+                <StarRating rating={rating} />
+              </div>
+              <div>{item.description}</div>
             </div>
-            <div>{item.description}</div>
           </div>
         );
       })}

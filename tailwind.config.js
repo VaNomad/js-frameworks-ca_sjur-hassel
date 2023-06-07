@@ -27,6 +27,9 @@ export default {
       fontFamily: {
         exa: ['"Lexend Exa"', "sans-serif"],
       },
+      backgroundImage: {
+        'Four04': "url('/src/assets/catFour04.jpg')",
+      }
     },
   },
   plugins: [],
