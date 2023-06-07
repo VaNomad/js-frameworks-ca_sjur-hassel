@@ -1,3 +1,5 @@
+
+import StarRating from "../utils/StarRating";
 import StarRatingAverage from "../utils/StarRatingAverage";
 import ArrowBack from "./ArrowBack";
 import { BsTrash } from "react-icons/bs";
@@ -61,6 +63,7 @@ export default function DetailsCard({ data, average }) {
               </div>
             </div>
             <div className="w-full pb-3 text-sm">
+              <StarRating rating={rating} />
               <Reviews reviews={reviews} />
             </div>
             <p className="hidden">{price}</p>
