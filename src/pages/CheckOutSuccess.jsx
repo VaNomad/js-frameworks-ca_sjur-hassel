@@ -38,8 +38,8 @@ export default function CheckOutSuccess() {
             You will recieve notice in the App when your item has been shipped!
           </h2>
         </div>
-        <Link to={"/"} >
-          <button className="mt-5 mb-14 rounded-md border border-gray-300 bg-lime-400 px-10 py-2 text-base uppercase tracking-wide transition-all duration-200 ease-in-out hover:bg-lime-300 hover:font-bold hover:shadow-xl md:w-[500px]">
+        <Link to={"/"} className="flex justify-center w-full">
+          <button className="buttonNormal">
             Back to Shop
           </button>
         </Link>
