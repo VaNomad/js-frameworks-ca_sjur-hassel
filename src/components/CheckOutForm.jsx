@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowBack from "./ArrowBack";
+import { SlPaypal } from "react-icons/sl";
+import { FaApplePay } from "react-icons/fa";
+import { SiVisa } from "react-icons/si";
+import { RiMastercardFill } from "react-icons/ri";
+
+
 // import creditcard from "../assets/creditcard.png";
 
 export default function CheckOutForm() {
@@ -127,15 +133,20 @@ export default function CheckOutForm() {
 
   return (
     <div className="mt-[90px] text-center">
-      <div className="container mx-auto border">
+      <div className="container mx-auto">
         <ArrowBack />
         <div className="z-10 m-2 mx-auto max-w-[150px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
           <p>Check Out</p>
         </div>
         <form
           onSubmit={onSubmit}
-          className="mx-8 mt-[80px] flex w-[600px] flex-col justify-center rounded-xl p-8 shadow-xl"
+          className="mx-auto mt-[80px] flex w-[600px] flex-col justify-center rounded-xl p-8"
         >
+          <div className="mb-2 rounded-full bg-violet-300 py-2 shadow-md shadow-gray-400">
+            <h2 className="font-exa text-xl text-gray-600">
+              Delivery Location
+            </h2>
+          </div>
           {/* Full Name */}
           <div className="relative flex flex-col">
             <input
@@ -146,7 +157,7 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={3}
               required
-              className="rounded-md border border-gray-300 p-2"
+              className="rounded-full border border-gray-300 bg-white p-2  shadow-md shadow-gray-400"
             />
             {errors.fullName && (
               <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
@@ -164,7 +175,7 @@ export default function CheckOutForm() {
               placeholder="E-mail"
               onChange={onInputChange}
               required
-              className="rounded-md border border-gray-300 p-2"
+              className="rounded-full border border-gray-300 bg-white p-2 shadow-md shadow-gray-400"
             />
             {errors.email && (
               <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
@@ -183,7 +194,7 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={10}
               required
-              className="rounded-md border border-gray-300 p-2"
+              className="rounded-full border border-gray-300 bg-white p-2 shadow-md shadow-gray-400"
             />
             {errors.address && (
               <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
@@ -202,7 +213,7 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={4}
               required
-              className="rounded-md border border-gray-300 p-2"
+              className="rounded-full border border-gray-300 bg-white p-2 shadow-md shadow-gray-400"
             />
             {errors.postcode && (
               <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
@@ -212,7 +223,7 @@ export default function CheckOutForm() {
           </div>
 
           {/* Phone Number */}
-          <div className="relative flex flex-col">
+          <div className="relative mb-6 flex flex-col">
             <input
               type="tel"
               id="phone"
@@ -221,7 +232,7 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={8}
               required
-              className="resize-none rounded-md border border-gray-300 p-2"
+              className="rounded-full border border-gray-300 bg-white p-2 shadow-md shadow-gray-400"
             ></input>
             {errors.phone && (
               <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
@@ -230,23 +241,80 @@ export default function CheckOutForm() {
             )}
           </div>
 
+          {/* Payment Method */}
+          <div className="mb-2 rounded-full bg-lime-300 py-2 shadow-md shadow-gray-400">
+            <h2 className="font-exa text-xl text-gray-600">Payment Method</h2>
+          </div>
+
+          {/* Paypal */}
+          <div className="relative flex flex-col">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+              <input type="radio" id="paypal" name="payment" required></input>
+              <label htmlFor="paypal">Paypal</label>
+              <label htmlFor="paypal">
+                <SlPaypal />
+              </label>
+            </div>
+          </div>
+
+          {/* Apple Pay */}
+          <div className="relative flex flex-col">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+              <input type="radio" id="applePay" name="payment" required></input>
+              <label htmlFor="applePay">Apple Pay</label>
+              <label htmlFor="applePay">
+                <FaApplePay />
+              </label>
+            </div>
+          </div>
+
+          {/* Visa/MasterCard */}
+          <div className="relative flex flex-col">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+              <input
+                type="radio"
+                id="visaMaster"
+                name="payment"
+                required
+              ></input>
+              <label htmlFor="visaMaster" className="ms-5">
+                Visa / MasterCard
+              </label>
+              <label className="flex gap-2">
+                <label htmlFor="visaMaster">
+                  <SiVisa />
+                </label>
+                <label htmlFor="visaMaster">
+                  <RiMastercardFill />
+                </label>
+              </label>
+            </div>
+          </div>
+
+          {/* Checkout Button */}
+          <Link to="/checkoutsuccess">
+            <button
+              onClick={() => cart.deleteAllFromCart()}
+              className="buttonCta"
+            >
+              Buy
+            </button>
+          </Link>
+
+        </form>
+
+        <Link to="/cart">
           <button
             type="submit"
             onClick={onSubmit}
-            className="rounded-md bg-fuchsia-600 px-20 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl"
+            className="buttonNormal mx-auto"
           >
-            Submit
-          </button>
-        </form>
-        <Link to="/checkoutsuccess">
-          <button
-            onClick={() => cart.deleteAllFromCart()}
-            className="buttonCta"
-          >
-            Buy
+            Back To Cart
           </button>
         </Link>
-        <ToastContainer theme="light" transition={Zoom} />
+
+        <ToastContainer theme="light" transition={ Zoom } />
+        
       </div>
     </div>
   );

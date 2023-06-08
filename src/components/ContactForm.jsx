@@ -180,7 +180,7 @@ export default function ContactForm() {
         <button
           type="submit"
           onClick={onSubmit}
-          className="rounded-md bg-fuchsia-600 px-20 py-2 text-xl font-light uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl"
+          className="buttonNormal mx-auto"
         >
           Submit
         </button>
