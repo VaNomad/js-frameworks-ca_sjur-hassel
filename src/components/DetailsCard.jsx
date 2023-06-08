@@ -130,7 +130,7 @@ export default function DetailsCard({ data, average }) {
                     </button>
                   </div>
                 </div>
-                <Link to="/checkout">
+                <Link to="/cart">
                   <div className="flex justify-center p-3">
                     <button className="buttonCta">
                       Go To Cart

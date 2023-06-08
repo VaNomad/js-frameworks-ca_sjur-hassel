@@ -37,12 +37,12 @@ export default function NavBar() {
             </li>
             <li className="min-w-[80px]">
               <NavLink
-                to="/checkout"
+                to="/cart"
                 className={({ isActive }) =>
                   isActive ? "active" : "notactive"
                 }
               >
-                Checkout
+                Cart
               </NavLink>
             </li>
           </ul>
