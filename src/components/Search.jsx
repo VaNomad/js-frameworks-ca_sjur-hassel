@@ -35,9 +35,8 @@ export default function Search({onSearch}) {
   return (
     <>
       {/* Search Bar */}
-      <div className="fixed top-[80px] z-10 w-full md:w-[520px] lg:w-[840px
-      ] border border-y-2 border-y-gray-400 md:border-none shadow-lg xs:top-[50px] md:top-[60px]">
-        <div className="flex justify-between overflow-hidden rounded bg-white shadow-sm shadow-gray-400">
+      <div className="fixed top-[80px] z-10 w-full xs:w-[420px] lg:w-[640px] border border-y-2 border-y-gray-400 xs:border-none xs:rounded-full shadow-lg xs:top-[60px]">
+        <div className="flex justify-between overflow-hidden rounded xs:rounded-full ps-2 bg-white shadow-sm shadow-gray-400">
           <input
             type="text"
             placeholder="Search products here . . ."
@@ -57,7 +56,7 @@ export default function Search({onSearch}) {
               </div>
             ) : (
               <div
-                className="m-1 inline-flex cursor-pointer items-center rounded bg-fuchsia-600 p-2 transition-all
+                className="m-1 inline-flex cursor-pointer items-center rounded md:rounded-full bg-violet-500 p-2 transition-all
                duration-200 hover:scale-105 hover:bg-fuchsia-400"
               >
                 <IoMdClose size={15} color="white" onClick={handleClose} />

@@ -39,7 +39,7 @@ export default function Card({ products }) {
                       </h2>
                     </div>
                     {discountedPrice && discountedPrice < price && (
-                      <div className="absolute right-2 top-1 flex items-center rounded-full bg-lime-400 px-2 py-1 text-sm shadow-lg">
+                      <div className="absolute right-2 top-1 flex items-center rounded-full bg-lime-400 px-2 py-1 text-sm  shadow-lg">
                         <BiMinus className="mr-1" />
                         {discountPercentage(discountedPrice, price)}%
                       </div>

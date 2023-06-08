@@ -23,13 +23,12 @@ export default function CheckOut() {
           </div>
         ) : (
           <>
-            <div className="mt-[90px] flex flex-col justify-center lg:items-center">
+            <div className=" z-10 m-2 mt-[90px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
+              <p>Check Out</p>
+            </div>
+            <div className="relative flex flex-col justify-center lg:items-center">
               <ArrowBack />
               {/* Checkout Label  */}
-              <div className="fixed right-0 top-[155px] z-10 mb-2 flex flex-col bg-black px-2 py-2 text-center text-xs font-semibold uppercase text-white sm:flex-row sm:px-6 sm:py-3 sm:text-base lg:px-2 lg:py-2">
-                <span>check </span>
-                <span>out</span>
-              </div>
               {items.map((item) => (
                 <div
                   key={item.id}
@@ -58,15 +57,13 @@ export default function CheckOut() {
                   <div className="flex flex-col gap-4 md:w-1/2 lg:w-2/3 lg:flex-row lg:justify-around">
                     {/* Title & Price */}
                     <div className="flex flex-col items-center">
-                      <h1 className="mb-4 text-lg text-gray-500">
-                        {item.title}
-                      </h1>
+                      <h1 className="mb-4 border-b text-xl">{item.title}</h1>
 
                       {item.discountedPrice &&
                       item.discountedPrice < item.price ? (
-                        <div className="text-xl">
+                        <div className="text-lg">
                           <h2>{formatCurrency(item.discountedPrice)}</h2>
-                          <h2 className="text-red-600 line-through decoration-black">
+                          <h2 className="text-amber-600 line-through decoration-black">
                             {formatCurrency(item.price)}
                           </h2>
                         </div>
@@ -81,9 +78,9 @@ export default function CheckOut() {
                         {/* Minus Button */}
                         <button
                           onClick={() => cart.eraseOneFromCart(item.id)}
-                          className="rounded bg-blue-500 text-white shadow-md"
+                          className="circleBtnBlue"
                         >
-                          <BiMinus />
+                          -
                         </button>
                         {/* Quantity */}
                         <div className="mx-4 flex text-gray-500">
@@ -94,18 +91,18 @@ export default function CheckOut() {
                         {/* Plus Button */}
                         <button
                           onClick={() => cart.addOneToCart(item.id, item.price)}
-                          className="rounded bg-blue-500 text-white shadow-md"
+                          className="circleBtnBlue"
                         >
-                          <BiPlus />
+                          +
                         </button>
                       </div>
                       {/* Trash Button */}
                       <div>
                         <button
                           onClick={() => cart.deleteFromCart(item.id)}
-                          className="my-2 flex h-9 w-9 items-center justify-center rounded bg-red-600 text-white shadow-md md:mt-0 lg:mt-0"
+                          className="circleBtnRed md:mt-0 lg:mt-0"
                         >
-                          <BsTrash size={25} />
+                          <BsTrash size={20} />
                         </button>
                       </div>
                     </div>
@@ -113,7 +110,6 @@ export default function CheckOut() {
                 </div>
               ))}
             </div>
-            <div className="h-[160px]"></div>
             <div className="fixed bottom-[120px] z-10 mx-4 w-full border-y-2 border-gray-400 bg-white px-10 py-2 text-center ">
               <h1 className="text-base">
                 Total: {formatCurrency(getTotalCost())}
@@ -122,13 +118,13 @@ export default function CheckOut() {
             <Link to="/checkoutsuccess">
               <button
                 onClick={() => cart.deleteAllFromCart()}
-                className="fixed bottom-[65px] left-0 right-0 mx-auto w-[250px] rounded-md bg-fuchsia-600 px-10 py-2 text-xl font-light uppercase tracking-widest text-white shadow-lg transition-all duration-200 ease-in-out hover:border-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl md:w-[500px]"
+                className="buttonCta fixed bottom-[65px] left-0 right-0 mx-auto"
               >
                 Place Order
               </button>
             </Link>
             <Link to={"/"}>
-              <button className="fixed bottom-[10px] left-0 right-0 mx-auto w-[250px] rounded-md bg-lime-400 px-10 py-2 text-xl font-light uppercase tracking-wide transition-all duration-200 ease-in-out hover:bg-lime-300 hover:font-bold hover:shadow-xl md:w-[500px]">
+              <button className="buttonNormal fixed bottom-[10px] left-0 right-0 mx-auto">
                 Back to Shop
               </button>
             </Link>
