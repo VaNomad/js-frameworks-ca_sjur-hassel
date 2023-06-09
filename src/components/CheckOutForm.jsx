@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,15 +9,13 @@ import { SlPaypal } from "react-icons/sl";
 import { FaApplePay } from "react-icons/fa";
 import { SiVisa } from "react-icons/si";
 import { RiMastercardFill } from "react-icons/ri";
-// import creditcard from "../assets/creditcard.png";
 import mastercard from "../assets/mastercard.png";
 import visacard from "../assets/visacard.png";
 import visaverified from "../assets/visaverified.png";
 import verisign from "../assets/verisign.png";
 
-// import creditcard from "../assets/creditcard.png";
-
 export default function CheckOutForm() {
+  const navigate = useNavigate();
   const cart = useShoppingCartContext();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -137,6 +136,10 @@ export default function CheckOutForm() {
       setCardNumber("");
       setExpires("");
       setCvc("");
+      cart.deleteAllFromCart();
+      
+      // Redirect to "/checkoutsuccess"
+      navigate("/checkoutsuccess");
     }
   }
 
@@ -285,7 +288,8 @@ export default function CheckOutForm() {
               value={postcode}
               placeholder="Postal Code"
               onChange={onInputChange}
-              minLength={4}
+              minLength={ 4 }
+              maxLength={4}
               required
               className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
             />
@@ -304,7 +308,8 @@ export default function CheckOutForm() {
               value={phone}
               placeholder="Phone Number"
               onChange={onInputChange}
-              minLength={8}
+              minLength={ 8 }
+              maxLength={8}
               required
               className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
             ></input>
@@ -412,6 +417,7 @@ export default function CheckOutForm() {
               placeholder="Card Number"
               onChange={onInputChange}
               minLength={16}
+              maxLength={16}
               required
               className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
             ></input>
@@ -431,6 +437,7 @@ export default function CheckOutForm() {
               placeholder="Card Expires Month/Year"
               onChange={onInputChange}
               minLength={4}
+              maxLength={4}
               required
               className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
             ></input>
@@ -442,14 +449,15 @@ export default function CheckOutForm() {
           </div>
 
           {/* CCV-/CVC */}
-          <div className="relative flex flex-col mb-8">
+          <div className="relative mb-8 flex flex-col">
             <input
               type="tel"
               id="cvc"
               value={cvc}
               placeholder="CCV-/CVC Code"
-              onChange={onInputChange}
+              onChange={ onInputChange }
               minLength={3}
+              maxLength={3}
               required
               className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
             ></input>
@@ -461,24 +469,16 @@ export default function CheckOutForm() {
           </div>
 
           {/* Checkout Button */}
-          <Link to="/checkoutsuccess">
-            <button
-              onClick={() => cart.deleteAllFromCart()}
-              className="buttonCta"
-            >
-              Buy
-            </button>
-          </Link>
+          <button
+            onClick={onSubmit}
+            className="buttonCta"
+          >
+            Buy
+          </button>
         </form>
 
         <Link to="/cart">
-          <button
-            type="submit"
-            onClick={onSubmit}
-            className="buttonNormal mx-auto"
-          >
-            Back To Cart
-          </button>
+          <button className="buttonNormal mx-auto">Back To Cart</button>
         </Link>
 
         <ToastContainer theme="light" transition={Zoom} />
