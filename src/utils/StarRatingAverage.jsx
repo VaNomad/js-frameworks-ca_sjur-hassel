@@ -1,6 +1,6 @@
 import StarRating from "./StarRating";
 
-const StarRatingAverage = ({ ratings = [] }) => {
+export default function StarRatingAverage({ ratings }) {
   const calculateAverageRating = () => {
     if (ratings.length === 0) {
       return 0;
@@ -14,10 +14,8 @@ const StarRatingAverage = ({ ratings = [] }) => {
   const averageRating = calculateAverageRating();
 
   return (
-    <div className="px-2 py-1">
+    <div>
       <StarRating rating={averageRating} />
     </div>
   );
-};
-
-export default StarRatingAverage;
+}

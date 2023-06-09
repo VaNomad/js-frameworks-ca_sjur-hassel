@@ -1,4 +1,3 @@
-import StarRating from "../utils/StarRating";
 import StarRatingAverage from "../utils/StarRatingAverage";
 import ArrowBack from "./ArrowBack";
 import { BsTrash } from "react-icons/bs";
@@ -10,11 +9,10 @@ import { Link } from "react-router-dom";
 import Reviews from "../utils/Reviews";
 import { BiMinus } from "react-icons/bi";
 
-export default function DetailsCard({ data, average }) {
+export default function DetailsCard({ data }) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getCartContent(data.id);
   const { discountPercentage } = useShoppingCartContext();
-  console.log(cart.items);
 
   const {
     title,
@@ -23,7 +21,6 @@ export default function DetailsCard({ data, average }) {
     tags,
     price,
     discountedPrice,
-    rating,
     reviews,
   } = data;
 
@@ -58,8 +55,8 @@ export default function DetailsCard({ data, average }) {
             <div className="flex-around miniCard flex w-full flex-col items-center xs:flex-row xs:justify-around">
               <div className="pb-2">
                 <h2 className="text-sm font-semibold">Avg Rating:</h2>
-                <div className="rounded-full bg-amber-500 m-1 px-2 py-1 text-center">
-                  <StarRatingAverage ratings={average} />
+                <div className="rounded-full bg-amber-500 m-1 px-3 py-2 text-center">
+                  <StarRatingAverage ratings={reviews.map((item) => item.rating)} />
                 </div>
               </div>
               <div className="pb-2">
@@ -70,7 +67,6 @@ export default function DetailsCard({ data, average }) {
               </div>
             </div>
             <div className="w-full pb-3 text-sm">
-              <StarRating rating={rating} />
               <Reviews reviews={reviews} />
             </div>
             <p className="hidden">{price}</p>
