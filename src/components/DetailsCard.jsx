@@ -40,7 +40,7 @@ export default function DetailsCard({ data }) {
             className="w-full object-cover md:h-screen"
           />
           {discountedPrice && discountedPrice < price && (
-            <div className="z-10 absolute right-[10px] bottom-[10px] flex items-center px-2 py-1 rounded-full bg-lime-400 border border-lime-500 text-sm xs:text-base xs:text-lg shadow-lg">
+            <div className="z-10 absolute right-[10px] bottom-[10px] flex items-center px-2 py-1 rounded-full bg-lime-400 border border-lime-500 text-sm xs:text-base md:text-lg shadow-lg">
               <BiMinus className="mr-1" />
               {discountPercentage(discountedPrice, price)}%
             </div>
