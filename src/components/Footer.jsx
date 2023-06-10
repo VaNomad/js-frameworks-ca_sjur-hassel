@@ -8,9 +8,6 @@ export default function Footer() {
           <img src={ sjurblue } alt="" className="w-[50px]" />
           <p className="uppercase font-thin font-exa text-sm">© sjur hassel 2023</p>
         </div>
-        <div>
-          <p className="text-xs">Built with React.js & TailwindCss</p>
-        </div>
       </div>
     </footer>
   )
