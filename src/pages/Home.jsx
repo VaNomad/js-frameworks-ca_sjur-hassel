@@ -1,12 +1,12 @@
 import ProductList from "../api/ProductList";
-import { ProductListProvider } from "../context/ProductListContext";
+// import { ProductListProvider } from "../context/ProductListContext";
 
 export default function Home() {
   return (
-    <ProductListProvider>
+    // <ProductListProvider>
       <div>
         <ProductList />
       </div>
-    </ProductListProvider>
+    // </ProductListProvider>
   );
 }
