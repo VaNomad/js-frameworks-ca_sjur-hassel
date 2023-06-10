@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import box from "../assets/box.png";
 import deliverytruck from "../assets/deliverytruck.png";
-import checkmark from "../assets/checkmark.png"
+import checkmark from "../assets/checkmark.png";
 
 export default function CheckOutSuccess() {
   return (
@@ -20,28 +20,30 @@ export default function CheckOutSuccess() {
         </div>
         <div>
           <div className="mx-4 mb-4 rounded-lg bg-white p-2 text-sm shadow-xl">
-            <p className="text-base text-center font-semibold">
+            <p className="text-center text-base font-semibold">
               Your payment has been received!
             </p>
           </div>
           <div className="mx-4 mt-4 rounded-lg bg-white p-2 text-sm shadow-xl">
-            <p className="text-lg text-center font-semibold">
+            <p className="text-center text-lg font-semibold">
               Thank you for your order!
             </p>
           </div>
         </div>
         <div>
-          <img src={deliverytruck} alt="Red delivery truck" className="w-[200px]"/>
+          <img
+            src={deliverytruck}
+            alt="Red delivery truck"
+            className="w-[200px]"
+          />
         </div>
-        <div className="mx-14 mb-4 rounded-lg bg-white p-2 text-sm font-semibold text-center shadow-xl">
+        <div className="mx-14 mb-4 rounded-lg bg-white p-2 text-center text-sm font-semibold shadow-xl">
           <h2>
             You will recieve notice in the App when your item has been shipped!
           </h2>
         </div>
-        <Link to={"/"} className="flex justify-center w-full">
-          <button className="buttonNormal">
-            Back to Shop
-          </button>
+        <Link to={"/"} className="flex w-full justify-center">
+          <button className="buttonNormal">Back to Shop</button>
         </Link>
       </div>
     </div>

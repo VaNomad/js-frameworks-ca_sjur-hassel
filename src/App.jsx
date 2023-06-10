@@ -3,11 +3,11 @@ import "./App.css";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Details from "./pages/Details";
-import Four04 from "./pages/Four04";
+import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
-import CheckOutSuccess from "./pages/CheckOutSuccess";
+import ValidCheckOut from "./pages/ValidCheckOut";
 import Layout from "./layout/Layout";
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/checkoutsuccess" element={<CheckOutSuccess />} />
+          <Route path="/checkoutsuccess" element={<ValidCheckOut />} />
           <Route path="/details/:id" element={<Details />} />
-          <Route path="*" element={<Four04 />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
