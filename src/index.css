@@ -10,23 +10,18 @@
 .card-zoom {
   @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl shadow-gray-300 w-60 h-60 rounded-xl border-gray-300 border-[1px];
 }
-
 .card-zoom:hover .card-zoom-image {
   @apply lg:scale-100;
 }
-
 .card-zoom-image {
   @apply absolute w-full h-[-1] transition-all duration-500 ease-in-out transform bg-cover lg:scale-[1.5];
 }
-
 .card-zoom-text {
   @apply absolute bg-black text-white px-2 rounded-full lg:rounded-none bottom-2 left-2 lg:static lg:text-6xl lg:font-bold lg:transition-all lg:duration-500 lg:ease-in-out lg:transform lg:scale-100 lg:text-gray-50 lg:opacity-0;
 }
-
 .card-zoom:hover .card-zoom-text {
   @apply lg:scale-50 text-white lg:opacity-100 bg-black rounded-xl lg:py-[30px] lg:px-[50px];
 }
-
 
 /* Mini Card —————————————————————————————————————————— */
 .miniCard {
@@ -54,6 +49,8 @@
 .toastStyle {
   @apply border-[3px] border-lime-300 rounded-xl font-bold shadow-xl
 }
+
+/* Buttons —————————————————————————————————————————— */
 
 .buttonNormal {
   @apply max-w-[300px] w-full rounded-full bg-fuchsia-600 bg-gradient-to-b from-violet-600 to-fuchsia-500 px-3 py-2 shadow-md text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
