@@ -34,7 +34,7 @@ export default function DetailsCard({ data }) {
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="m-3 relative mt-[90px] xs:mt-[75px] md:mx-auto md:my-auto">
-          <img src={imageUrl} alt={title} className="rounded-xl w-full object-cover" />
+          <img src={imageUrl} alt={title} className="rounded-xl w-[400px] object-cover md:h-[400px]" />
           {discountedPrice && discountedPrice < price && (
             <div className="absolute bottom-[10px] right-[10px] z-10 flex items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
               <BiMinus className="mr-1" />
@@ -67,7 +67,6 @@ export default function DetailsCard({ data }) {
             <div className="w-full pb-3 text-sm">
               <Reviews reviews={reviews} />
             </div>
-            <p className="hidden">{price}</p>
             <div className="mb-4 text-xl font-bold">
               {formatCurrency(discountedPrice)}
             </div>

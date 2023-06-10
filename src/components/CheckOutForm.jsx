@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowBack from "./ArrowBack";
 import { SlPaypal } from "react-icons/sl";
@@ -121,10 +120,6 @@ export default function CheckOutForm() {
         cvc,
       };
       console.log(formData);
-      toast.success("Your Checkout was Successful!", {
-        position: toast.POSITION.BOTTOM_CENTER,
-        className: "toastStyle",
-      });
 
       // Clear form inputs
       setFullName("");
@@ -208,8 +203,8 @@ export default function CheckOutForm() {
   }
 
   return (
-    <div className="mt-[90px] text-center">
-      <div className="container mx-auto">
+    <div className="mt-[90px] text-center mx-auto">
+      <div className="">
         <ArrowBack />
         <div className="z-10 m-2 mx-auto max-w-[150px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
           <p>Check Out</p>
@@ -471,17 +466,15 @@ export default function CheckOutForm() {
           {/* Checkout Button */}
           <button
             onClick={onSubmit}
-            className="buttonCta"
+            className="buttonCta mx-auto"
           >
             Buy
           </button>
         </form>
 
         <Link to="/cart">
-          <button className="buttonNormal mx-auto">Back To Cart</button>
+          <button className="buttonNormal mx-auto mb-8">Back To Cart</button>
         </Link>
-
-        <ToastContainer theme="light" transition={Zoom} />
       </div>
     </div>
   );
