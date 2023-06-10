@@ -87,7 +87,7 @@ export default function DetailsCard({ data }) {
                       data.reviews
                     )
                   }
-                  className="buttonNormal shadow-lg"
+                  className="buttonNormal shadow-lg mb-8"
                 >
                   Add To Cart
                 </button>
@@ -131,7 +131,7 @@ export default function DetailsCard({ data }) {
                 </Link>
                 <Link to="/">
                   <div className="flex justify-center p-3">
-                    <button className="buttonNormal">Shop More</button>
+                    <button className="buttonNormal mb-8">Shop More</button>
                   </div>
                 </Link>
               </>
