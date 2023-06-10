@@ -16,7 +16,7 @@ import verisign from "../assets/verisign.png";
 import { BsTrash } from "react-icons/bs";
 
 export default function CheckOutForm() {
-  const { items, discountPercentage } = useShoppingCartContext();
+  const { items, getTotalCost } = useShoppingCartContext();
   const navigate = useNavigate();
   const cart = useShoppingCartContext();
   const [fullName, setFullName] = useState("");
@@ -219,44 +219,48 @@ export default function CheckOutForm() {
               className="mx-auto flex max-w-lg items-center justify-between rounded-lg p-2 shadow-lg"
             >
               {/* Image */}
-              
-                <div>
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="m-1 h-[50px] w-[50px] rounded-lg object-cover shadow-md"
-                  />
-                </div>
-                {/* Title & Price */}
-                <div>
-                  <h1 className="text-sm">{item.title}</h1>
-                </div>
-                <div className="flex justify-between">
-                  {item.discountedPrice && item.discountedPrice < item.price ? (
-                    <div>
-                      <h2>{formatCurrency(item.discountedPrice)}</h2>
-                      <h2 className="text-amber-600 line-through decoration-black">
-                        {formatCurrency(item.price)}
-                      </h2>
-                    </div>
-                  ) : (
-                    <h2 className="text-sm font-semibold">
-                      {formatCurrency(item.discountedPrice)}
+
+              <div>
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="m-1 h-[50px] w-[50px] rounded-lg object-cover shadow-md"
+                />
+              </div>
+              {/* Title & Price */}
+              <div>
+                <h1 className="text-sm">{item.title}</h1>
+              </div>
+              <div className="flex justify-between">
+                {item.discountedPrice && item.discountedPrice < item.price ? (
+                  <div>
+                    <h2>{formatCurrency(item.discountedPrice)}</h2>
+                    <h2 className="text-amber-600 line-through decoration-black">
+                      {formatCurrency(item.price)}
                     </h2>
-                  )}
-                </div>
-                {/* Trash Button */}
-                <div>
-                  <button
-                    onClick={() => cart.deleteFromCart(item.id)}
-                    className="circleBtnRed"
-                  >
-                    <BsTrash size={20} />
-                  </button>
-                </div>
-              
+                  </div>
+                ) : (
+                  <h2 className="text-sm font-semibold">
+                    {formatCurrency(item.discountedPrice)}
+                  </h2>
+                )}
+              </div>
+              {/* Trash Button */}
+              <div>
+                <button
+                  onClick={() => cart.deleteFromCart(item.id)}
+                  className="circleBtnRed"
+                >
+                  <BsTrash size={20} />
+                </button>
+              </div>
             </div>
           ))}
+        </div>
+        <div className="w-full mt-6">
+          <h1 className="border-y-2 border-gray-400 py-2 text-base">
+            Total: {formatCurrency(getTotalCost())}
+          </h1>
         </div>
         <form
           onSubmit={onSubmit}

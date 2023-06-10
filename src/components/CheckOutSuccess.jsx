@@ -5,7 +5,7 @@ import checkmark from "../assets/checkmark.png";
 
 export default function CheckOutSuccess() {
   return (
-    <div className="mt-[60px] flex flex-col items-center justify-center p-8">
+    <div className="mt-[60px] flex flex-col items-center justify-center p-8 h-screen">
       <div className="flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-xl">
         <div className="mx-4 mb-5 mt-14 rounded-lg bg-white px-8 py-2 text-center font-semibold uppercase shadow-xl">
           <h1>Your Order Is Confirmed!</h1>
@@ -14,9 +14,9 @@ export default function CheckOutSuccess() {
           <img
             src={checkmark}
             alt="Green checkmark"
-            className="absolute left-0 right-0 m-auto w-[70px]"
+            className="absolute left-0 right-0 m-auto w-[35px]"
           />
-          <img src={box} alt="An open cardboard box" className="w-[200px]" />
+          <img src={box} alt="An open cardboard box" className="w-[100px]" />
         </div>
         <div>
           <div className="mx-4 mb-4 rounded-lg bg-white p-2 text-sm shadow-xl">
@@ -34,7 +34,7 @@ export default function CheckOutSuccess() {
           <img
             src={deliverytruck}
             alt="Red delivery truck"
-            className="w-[200px]"
+            className="w-[100px]"
           />
         </div>
         <div className="mx-14 mb-4 rounded-lg bg-white p-2 text-center text-sm font-semibold shadow-xl">
@@ -42,7 +42,7 @@ export default function CheckOutSuccess() {
             You will recieve notice in the App when your item has been shipped!
           </h2>
         </div>
-        <Link to={"/"} className="flex w-full justify-center">
+        <Link to={"/"} className="flex w-full justify-center mt-5 mb-10">
           <button className="buttonNormal">Back to Shop</button>
         </Link>
       </div>
