@@ -203,7 +203,7 @@ export default function CheckOutForm() {
   }
 
   return (
-    <div className="mt-[90px] text-center mx-auto">
+    <div className="mx-auto mt-[90px] text-center">
       <div className="">
         <ArrowBack />
         <div className="z-10 m-2 mx-auto max-w-[150px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
@@ -211,10 +211,10 @@ export default function CheckOutForm() {
         </div>
         <form
           onSubmit={onSubmit}
-          className="mx-auto mt-[80px] flex w-[600px] flex-col justify-center rounded-xl p-8"
+          className="mx-auto mt-[80px] flex flex-col justify-center rounded-xl p-8 sm:w-[600px]"
         >
           <div className="mb-2 rounded-full bg-violet-300 py-2 shadow-md shadow-gray-400">
-            <h2 className="font-exa text-xl text-gray-600">
+            <h2 className="font-exa text-sm text-gray-600 xs:text-xl">
               Delivery Location
             </h2>
           </div>
@@ -229,10 +229,10 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={3}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             />
             {errors.fullName && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.fullName}
               </p>
             )}
@@ -247,10 +247,10 @@ export default function CheckOutForm() {
               placeholder="E-mail"
               onChange={onInputChange}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             />
             {errors.email && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.email}
               </p>
             )}
@@ -266,10 +266,10 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={10}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             />
             {errors.address && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.address}
               </p>
             )}
@@ -283,13 +283,13 @@ export default function CheckOutForm() {
               value={postcode}
               placeholder="Postal Code"
               onChange={onInputChange}
-              minLength={ 4 }
+              minLength={4}
               maxLength={4}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             />
             {errors.postcode && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.postcode}
               </p>
             )}
@@ -303,13 +303,13 @@ export default function CheckOutForm() {
               value={phone}
               placeholder="Phone Number"
               onChange={onInputChange}
-              minLength={ 8 }
+              minLength={8}
               maxLength={8}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             ></input>
             {errors.phone && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.phone}
               </p>
             )}
@@ -317,12 +317,14 @@ export default function CheckOutForm() {
 
           {/* Payment Method */}
           <div className="mb-2 rounded-full bg-lime-300 py-2 shadow-md shadow-gray-400">
-            <h2 className="font-exa text-xl text-gray-600">Payment Method</h2>
+            <h2 className="font-exa text-sm text-gray-600 xs:text-xl">
+              Payment Method
+            </h2>
           </div>
 
           {/* Paypal */}
           <div className="relative flex flex-col">
-            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 text-xs shadow-md shadow-gray-400 xs:text-base">
               <input type="radio" id="paypal" name="payment" required></input>
               <label htmlFor="paypal">Paypal</label>
               <label htmlFor="paypal">
@@ -333,7 +335,7 @@ export default function CheckOutForm() {
 
           {/* Apple Pay */}
           <div className="relative flex flex-col">
-            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 text-xs shadow-md shadow-gray-400 xs:text-base">
               <input type="radio" id="applePay" name="payment" required></input>
               <label htmlFor="applePay">Apple Pay</label>
               <label htmlFor="applePay">
@@ -344,7 +346,7 @@ export default function CheckOutForm() {
 
           {/* Visa/MasterCard */}
           <div className="relative mb-8 flex flex-col">
-            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 shadow-md shadow-gray-400">
+            <div className="flex items-center justify-between rounded-full border border-gray-300 bg-white p-2 px-4 text-xs shadow-md shadow-gray-400 xs:text-base">
               <input
                 type="radio"
                 id="visaMaster"
@@ -367,20 +369,22 @@ export default function CheckOutForm() {
 
           {/* Card Details */}
           <div className="mb-2 rounded-full bg-indigo-300 py-2 shadow-md shadow-gray-400">
-            <h2 className="font-exa text-xl text-gray-600">Card Details</h2>
+            <h2 className="font-exa text-sm text-gray-600 xs:text-xl">
+              Card Details
+            </h2>
           </div>
 
           {/* Card Images */}
-          <div className=" flex items-center justify-between">
-            <div>
-              <img src={visacard} alt="" className="max-w-[230px]" />
+          <div className="grid grid-cols-7">
+            <div className="col-span-3">
+              <img src={visacard} alt="" className="" />
             </div>
-            <div>
-              <img src={visaverified} alt="" className="max-w-[60px]" />
-              <img src={verisign} alt="" className="max-w-[60px]" />
+            <div className="col-span-1 my-auto">
+              <img src={visaverified} alt="" className="" />
+              <img src={verisign} alt="" className="" />
             </div>
-            <div>
-              <img src={mastercard} alt="" className="max-w-[245px]" />
+            <div className="col-span-3 my-auto scale-110">
+              <img src={mastercard} alt="" className="" />
             </div>
           </div>
 
@@ -394,10 +398,10 @@ export default function CheckOutForm() {
               onChange={onInputChange}
               minLength={3}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             />
             {errors.nameOnCard && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.nameOnCard}
               </p>
             )}
@@ -414,10 +418,10 @@ export default function CheckOutForm() {
               minLength={16}
               maxLength={16}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             ></input>
             {errors.cardNumber && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.cardNumber}
               </p>
             )}
@@ -434,10 +438,10 @@ export default function CheckOutForm() {
               minLength={4}
               maxLength={4}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             ></input>
             {errors.expires && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.expires}
               </p>
             )}
@@ -450,25 +454,22 @@ export default function CheckOutForm() {
               id="cvc"
               value={cvc}
               placeholder="CCV-/CVC Code"
-              onChange={ onInputChange }
+              onChange={onInputChange}
               minLength={3}
               maxLength={3}
               required
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 shadow-md shadow-gray-400"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
             ></input>
             {errors.cvc && (
-              <p className="absolute right-3 top-2 animate-pulse text-fuchsia-600">
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
                 {errors.cvc}
               </p>
             )}
           </div>
 
           {/* Checkout Button */}
-          <button
-            onClick={onSubmit}
-            className="buttonCta mx-auto"
-          >
-            Buy
+          <button onClick={onSubmit} className="buttonCta mx-auto">
+            Place Order
           </button>
         </form>
 
