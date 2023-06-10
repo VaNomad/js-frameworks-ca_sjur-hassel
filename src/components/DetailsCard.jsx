@@ -67,6 +67,7 @@ export default function DetailsCard({ data }) {
             <div className="w-full pb-3 text-sm">
               <Reviews reviews={reviews} />
             </div>
+            <p className="hidden">{price}</p>
             <div className="mb-4 text-xl font-bold">
               {formatCurrency(discountedPrice)}
             </div>
