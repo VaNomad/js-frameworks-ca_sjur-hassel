@@ -33,7 +33,7 @@ export default function ProductList() {
   if (isError) return <LoadErr />;
 
   return (
-    <div className="h-screen flex flex-col items-center text-black">
+    <div className="flex flex-col items-center text-black">
       <Card
         products={products}
         title="All Products"

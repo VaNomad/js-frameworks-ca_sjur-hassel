@@ -28,25 +28,25 @@ export default function DetailsCard({ data }) {
     <div className="flex h-screen w-full flex-col">
       <div className="relative flex items-center justify-end md:justify-center">
         <ArrowBack />
-        <div className="z-10 absolute top-[90px] rounded-full m-2 py-1 px-2 text-center text-xs font-semibold uppercase xs:text-base bg-black text-white">
+        <div className="absolute top-[90px] z-10 m-2 rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
           <p>Item Details</p>
         </div>
       </div>
-      <div className="flex flex-col justify-center md:h-screen md:flex-row">
-        <div className="relative mt-[60px] xs:mt-[35px] md:mt-[50px]">
+      <div className="flex flex-col items-center justify-center md:flex-row">
+        <div className="relative mt-[80px] w-full md:h-screen xs:mt-[35px] md:mt-[50px]">
           <img
             src={imageUrl}
             alt={title}
-            className="w-full object-cover md:h-screen"
+            className="max-h-[400px] md:h-screen w-full object-cover"
           />
           {discountedPrice && discountedPrice < price && (
-            <div className="z-10 absolute right-[10px] bottom-[10px] flex items-center px-2 py-1 rounded-full bg-lime-400 border border-lime-500 text-sm xs:text-base md:text-lg shadow-lg">
+            <div className="absolute bottom-[10px] right-[10px] z-10 flex items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
               <BiMinus className="mr-1" />
               {discountPercentage(discountedPrice, price)}%
             </div>
           )}
         </div>
-        <div className="flex flex-col justify-center bg-gray-100">
+        <div className="w-full  flex flex-col justify-center bg-gray-100">
           <div className="mx-3 flex flex-col items-center justify-around md:gap-5 md:px-2 md:py-4">
             <div className="miniCard mb-2 w-full">
               <h1 className="border-b border-gray-500 p-3 text-2xl">{title}</h1>
@@ -55,13 +55,15 @@ export default function DetailsCard({ data }) {
             <div className="flex-around miniCard flex w-full flex-col items-center xs:flex-row xs:justify-around">
               <div className="pb-2">
                 <h2 className="text-sm font-semibold">Avg Rating:</h2>
-                <div className="rounded-full bg-amber-500 m-1 px-3 py-2 text-center">
-                  <StarRatingAverage ratings={reviews.map((item) => item.rating)} />
+                <div className="m-1 rounded-full bg-amber-500 px-3 py-2 text-center">
+                  <StarRatingAverage
+                    ratings={reviews.map((item) => item.rating)}
+                  />
                 </div>
               </div>
               <div className="pb-2">
                 <h2 className="text-sm font-semibold">Search Tags: </h2>
-                <div className="rounded-full bg-cyan-500 m-1 pe-2 ps-3 py-1 text-white">
+                <div className="m-1 rounded-full bg-cyan-500 py-1 pe-2 ps-3 text-white">
                   # {tags}
                 </div>
               </div>
@@ -128,16 +130,12 @@ export default function DetailsCard({ data }) {
                 </div>
                 <Link to="/cart">
                   <div className="flex justify-center p-3">
-                    <button className="buttonCta">
-                      Go To Cart
-                    </button>
+                    <button className="buttonCta">Go To Cart</button>
                   </div>
                 </Link>
                 <Link to="/">
                   <div className="flex justify-center p-3">
-                    <button className="buttonNormal">
-                      Shop More
-                    </button>
+                    <button className="buttonNormal">Shop More</button>
                   </div>
                 </Link>
               </>
