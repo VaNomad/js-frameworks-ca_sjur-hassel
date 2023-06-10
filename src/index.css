@@ -53,10 +53,10 @@
 /* Buttons —————————————————————————————————————————— */
 
 .buttonNormal {
-  @apply max-w-[300px] w-full rounded-full bg-fuchsia-600 bg-gradient-to-b from-violet-600 to-fuchsia-500 px-3 py-2 shadow-md text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
+  @apply max-w-[300px] w-full rounded-full bg-fuchsia-600 bg-gradient-to-b from-violet-600 to-fuchsia-500 px-3 py-2 shadow-md text-sm xs:text-base font-medium uppercase tracking-widest text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-fuchsia-500 hover:font-bold hover:tracking-widest hover:shadow-xl
 }
 .buttonCta {
-  @apply max-w-[300px] w-full rounded-full bg-lime-600 bg-gradient-to-b from-lime-500 to-yellow-500 px-3 py-2 shadow-md text-base text-white font-medium uppercase tracking-widest transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-lime-500 hover:font-bold hover:tracking-widest hover:shadow-xl hover:text-white
+  @apply max-w-[300px] w-full rounded-full bg-lime-600 bg-gradient-to-b from-lime-500 to-yellow-500 px-3 py-2 shadow-md text-sm xs:text-base text-white font-medium uppercase tracking-widest transition-all duration-200 ease-in-out hover:scale-105 hover:bg-none hover:bg-lime-500 hover:font-bold hover:tracking-widest hover:shadow-xl hover:text-white
 }
 .circleBtnBlue {
  @apply h-8 w-8 rounded-full bg-indigo-400 text-white text-lg shadow-md

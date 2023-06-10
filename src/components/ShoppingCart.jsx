@@ -23,10 +23,10 @@ export default function ShoppingCart() {
           </div>
         ) : (
           <>
-            <div className=" z-10 m-2 mt-[90px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
+            <div className=" z-10 m-2 mt-[70px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
               <p>Your Cart</p>
             </div>
-            <div className="relative flex flex-col justify-center lg:items-center">
+            <div className="relative flex flex-col justify-center lg:items-center mb-[80px]">
               <ArrowBack />
               {/* Checkout Label  */}
               {items.map((item) => (
@@ -110,21 +110,21 @@ export default function ShoppingCart() {
                 </div>
               ))}
             </div>
-            <div className="fixed bottom-[120px] z-10 mx-4 w-full border-y-2 border-gray-400 bg-white px-10 py-2 text-center ">
-              <h1 className="text-base">
+            <div className="fixed bottom-0 z-10 mx-4 h-[160px] w-full  bg-white py-2 text-center ">
+              <h1 className="border-y-2 border-gray-400 text-base py-2">
                 Total: {formatCurrency(getTotalCost())}
               </h1>
+              <Link to="/checkout">
+                <button className="buttonCta fixed bottom-[60px] left-0 right-0 mx-auto">
+                  Check Out
+                </button>
+              </Link>
+              <Link to={"/"}>
+                <button className="buttonNormal fixed bottom-[10px] left-0 right-0 mx-auto">
+                  Back to Shop
+                </button>
+              </Link>
             </div>
-            <Link to="/checkout">
-              <button className="buttonCta fixed bottom-[65px] left-0 right-0 mx-auto">
-                Check Out
-              </button>
-            </Link>
-            <Link to={"/"}>
-              <button className="buttonNormal fixed bottom-[10px] left-0 right-0 mx-auto">
-                Back to Shop
-              </button>
-            </Link>
           </>
         )}
       </div>

@@ -211,7 +211,7 @@ export default function CheckOutForm() {
         </div>
         <form
           onSubmit={onSubmit}
-          className="mx-auto mt-[80px] flex flex-col justify-center rounded-xl p-8 sm:w-[600px]"
+          className="mx-auto flex flex-col justify-center rounded-xl p-8 sm:w-[600px]"
         >
           <div className="mb-2 rounded-full bg-violet-300 py-2 shadow-md shadow-gray-400">
             <h2 className="font-exa text-sm text-gray-600 xs:text-xl">
@@ -468,14 +468,13 @@ export default function CheckOutForm() {
           </div>
 
           {/* Checkout Button */}
-          <button onClick={onSubmit} className="buttonCta mx-auto">
+          <button onClick={onSubmit} className="buttonCta mx-auto mb-8">
             Place Order
           </button>
+          <Link to="/cart">
+            <button className="buttonNormal mx-auto">Back To Cart</button>
+          </Link>
         </form>
-
-        <Link to="/cart">
-          <button className="buttonNormal mx-auto mb-8">Back To Cart</button>
-        </Link>
       </div>
     </div>
   );
