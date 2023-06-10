@@ -6,7 +6,7 @@ export default function Reviews({ reviews }) {
       {reviews.map((item, i) => {
         return (
           <div key={i}>
-            <div className="flex flex-col justify-center miniCard">
+            <div className="flex flex-col justify-center miniCard bg-white">
               <div className="flex justify-start gap-3 border-b py-1">
                 <p className="font-semibold">{ item.username }</p>
                 <StarRating rating={item.rating} />
