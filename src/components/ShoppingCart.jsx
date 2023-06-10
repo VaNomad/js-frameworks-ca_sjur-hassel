@@ -23,7 +23,7 @@ export default function ShoppingCart() {
           </div>
         ) : (
           <>
-            <div className=" z-10 m-2 mt-[70px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
+            <div className="z-10 m-2 mt-[70px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
               <p>Your Cart</p>
             </div>
             <div className="relative flex flex-col justify-center lg:items-center mb-[80px]">

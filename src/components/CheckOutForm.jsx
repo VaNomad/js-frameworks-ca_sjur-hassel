@@ -1,3 +1,4 @@
+import { formatCurrency } from "../utils/FormatCurrency";
 import { useNavigate } from "react-router-dom";
 import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import { useState } from "react";
@@ -12,8 +13,10 @@ import mastercard from "../assets/mastercard.png";
 import visacard from "../assets/visacard.png";
 import visaverified from "../assets/visaverified.png";
 import verisign from "../assets/verisign.png";
+import { BsTrash } from "react-icons/bs";
 
 export default function CheckOutForm() {
+  const { items, discountPercentage } = useShoppingCartContext();
   const navigate = useNavigate();
   const cart = useShoppingCartContext();
   const [fullName, setFullName] = useState("");
@@ -208,6 +211,52 @@ export default function CheckOutForm() {
         <ArrowBack />
         <div className="z-10 m-2 mx-auto max-w-[150px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
           <p>Check Out</p>
+        </div>
+        <div>
+          {items.map((item) => (
+            <div
+              key={item.id}
+              className="mx-auto flex max-w-lg items-center justify-between rounded-lg p-2 shadow-lg"
+            >
+              {/* Image */}
+              
+                <div>
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="m-1 h-[50px] w-[50px] rounded-lg object-cover shadow-md"
+                  />
+                </div>
+                {/* Title & Price */}
+                <div>
+                  <h1 className="text-sm">{item.title}</h1>
+                </div>
+                <div className="flex justify-between">
+                  {item.discountedPrice && item.discountedPrice < item.price ? (
+                    <div>
+                      <h2>{formatCurrency(item.discountedPrice)}</h2>
+                      <h2 className="text-amber-600 line-through decoration-black">
+                        {formatCurrency(item.price)}
+                      </h2>
+                    </div>
+                  ) : (
+                    <h2 className="text-sm font-semibold">
+                      {formatCurrency(item.discountedPrice)}
+                    </h2>
+                  )}
+                </div>
+                {/* Trash Button */}
+                <div>
+                  <button
+                    onClick={() => cart.deleteFromCart(item.id)}
+                    className="circleBtnRed"
+                  >
+                    <BsTrash size={20} />
+                  </button>
+                </div>
+              
+            </div>
+          ))}
         </div>
         <form
           onSubmit={onSubmit}
