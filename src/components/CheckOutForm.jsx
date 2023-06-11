@@ -216,10 +216,9 @@ export default function CheckOutForm() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="mx-auto flex max-w-lg items-center justify-between rounded-lg p-2 shadow-lg"
+              className="mx-auto flex max-w-lg items-center justify-between rounded-lg p-2 shadow-lg font-karla"
             >
               {/* Image */}
-
               <div>
                 <img
                   src={item.imageUrl}
@@ -229,7 +228,7 @@ export default function CheckOutForm() {
               </div>
               {/* Title & Price */}
               <div>
-                <h1 className="text-sm">{item.title}</h1>
+                <h1 className="text-sm font-semibold">{item.title}</h1>
               </div>
               <div className="flex justify-between">
                 {item.discountedPrice && item.discountedPrice < item.price ? (
@@ -258,13 +257,13 @@ export default function CheckOutForm() {
           ))}
         </div>
         <div className="mt-6 w-full">
-          <h1 className="border-y-2 border-gray-400 py-2 text-base">
+          <h1 className="border-y-2 border-gray-400 py-2 font-karla text-xl font-bold text-gray-600">
             Total: {formatCurrency(getTotalCost())}
           </h1>
         </div>
         <form
           onSubmit={onSubmit}
-          className="mx-auto flex flex-col justify-center rounded-xl p-8 sm:w-[600px]"
+          className="mx-auto flex flex-col justify-center rounded-xl p-8 sm:w-[600px] font-karla"
         >
           <div className="mb-2 rounded-full bg-violet-300 py-2 shadow-md shadow-gray-400">
             <h2 className="font-exa text-sm text-gray-600 xs:text-xl">

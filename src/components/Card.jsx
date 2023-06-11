@@ -16,7 +16,7 @@ export default function Card({ products }) {
   return (
     <>
       <Search onSearch={setSearch} />
-      <div className="mt-[110px] xs:mt-[80px]">
+      <div className="mt-[110px] xs:mt-[80px] font-karla">
         <h1 className="mb-2 mt-8 p-3 text-center font-exa text-xl uppercase text-black">
           {search === "" ? "All Products" : "Your Search"}
         </h1>

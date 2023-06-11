@@ -26,6 +26,8 @@ export default {
       },
       fontFamily: {
         exa: ['"Lexend Exa"', "sans-serif"],
+        karla: ['"Karla"', "sans-serif"],
+        syne: ['"Syne"', "sans-serif"],
       },
       backgroundImage: {
         'Four04': "url('/src/assets/catFour04.jpg')",

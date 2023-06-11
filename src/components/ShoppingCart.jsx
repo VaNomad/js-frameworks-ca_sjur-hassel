@@ -36,7 +36,7 @@ export default function ShoppingCart() {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="mb-6 flex max-w-sm flex-col items-center justify-between gap-2 rounded-lg p-3 shadow-lg md:max-w-xl md:flex-row"
+                  className="mb-6 flex max-w-sm flex-col items-center justify-between gap-2 rounded-lg p-3 shadow-lg md:max-w-xl md:flex-row font-karla"
                 >
                   {/* Image */}
                   <div className="relative">
@@ -58,10 +58,10 @@ export default function ShoppingCart() {
                         </div>
                       )}
                   </div>
-                  <div className="flex flex-col gap-4 text-sm md:w-1/2 md:text-lg lg:w-2/3 lg:flex-row lg:justify-around">
+                  <div className="flex flex-col gap-4 md:gap-8 text-sm md:text-lg lg:flex-row lg:justify-around">
                     {/* Title & Price */}
                     <div className="flex flex-col items-center">
-                      <h1 className="mb-4 border-b">{item.title}</h1>
+                      <h1 className="mb-4 border-b font-syne">{item.title}</h1>
 
                       {item.discountedPrice &&
                       item.discountedPrice < item.price ? (
@@ -113,7 +113,7 @@ export default function ShoppingCart() {
               ))}
             </div>
             <div className="fixed bottom-0 z-10 h-[160px] w-full bg-white text-center ">
-              <h1 className="border-y-2 border-gray-400 py-2 text-base">
+              <h1 className="border-y-2 border-gray-400 py-2 text-xl font-karla font-bold">
                 Total: {formatCurrency(getTotalCost())}
               </h1>
               <Link to="/checkout">

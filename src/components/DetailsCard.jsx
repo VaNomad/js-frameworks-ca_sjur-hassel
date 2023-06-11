@@ -45,7 +45,7 @@ export default function DetailsCard({ data }) {
               className="md:my-10 w-full rounded-xl md:flex md:items-center lg:max-w-sm"
             />
             {discountedPrice && discountedPrice < price && (
-              <div className="absolute top-[-15px] md:top-5 left-[-15px] z-10 flex items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
+              <div className="absolute top-[-15px] md:top-5 left-[-15px] z-10 flex font-karla items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
                 <BiMinus className="mr-1" />
                 {discountPercentage(discountedPrice, price)}%
               </div>
@@ -53,10 +53,10 @@ export default function DetailsCard({ data }) {
           </div>
 
           {/* Details */}
-          <div className="m:mt-10 flex flex-col justify-center md:my-10">
+          <div className="m:mt-10 flex flex-col justify-center md:my-10 font-karla">
             <div className=" flex flex-col items-center justify-around gap-4 rounded-xl md:gap-1">
               <div className="miniCard bg-white">
-                <h1 className="border-b border-gray-500 p-3 text-2xl">
+                <h1 className="border-b border-gray-500 p-3 font-syne text-2xl">
                   {title}
                 </h1>
                 <div className="p-3 text-sm">{description}</div>
