@@ -17,9 +17,9 @@ export default function Card({ products }) {
     <>
       <Search onSearch={setSearch} />
       <div className="mt-[110px] xs:mt-[80px]">
-        <h2 className="mb-2 mt-8 p-3 text-center font-exa text-xl uppercase text-black">
+        <h1 className="mb-2 mt-8 p-3 text-center font-exa text-xl uppercase text-black">
           {search === "" ? "All Products" : "Your Search"}
-        </h2>
+        </h1>
         <div className="">
           <div className="relative mb-8 grid grid-cols-1 items-center justify-center gap-3 text-black sm:grid-cols-2 lg:grid-cols-3 lg:gap-9">
             {filteredProducts.map(

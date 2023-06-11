@@ -96,96 +96,98 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <ArrowBack />
-      <form
-        onSubmit={onSubmit}
-        className="flex w-[600px] flex-col justify-center rounded-xl p-8 mx-8 mt-[80px] shadow-xl"
-      >
-        <div className="flex h-[100px] flex-col">
-          <label htmlFor="fullName" className="text-lg font-bold text-gray-600">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            value={fullName}
-            placeholder="Your full Name"
-            onChange={onInputChange}
-            minLength={3}
-            required
-            className="rounded-md border border-gray-300 p-2"
-          />
-          {errors.fullName && (
-            <p className="animate-pulse text-fuchsia-600">{errors.fullName}</p>
-          )}
-        </div>
-
-        <div className="flex h-[100px] flex-col">
-          <label htmlFor="email" className="text-lg font-bold text-gray-600">
-            E-mail
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            placeholder="Your E-mail"
-            onChange={onInputChange}
-            required
-            className="rounded-md border border-gray-300 p-2"
-          />
-          {errors.email && (
-            <p className="animate-pulse text-fuchsia-600">{errors.email}</p>
-          )}
-        </div>
-
-        <div className="flex h-[100px] flex-col">
-          <label htmlFor="subject" className="text-lg font-bold text-gray-600">
-            Subject
-          </label>
-          <input
-            type="text"
-            id="subject"
-            value={subject}
-            placeholder="Message Subject"
-            onChange={onInputChange}
-            minLength={3}
-            required
-            className="rounded-md border border-gray-300 p-2"
-          />
-          {errors.subject && (
-            <p className="animate-pulse text-fuchsia-600">{errors.subject}</p>
-          )}
-        </div>
-
-        <div className="flex h-[180px] flex-col">
-          <label htmlFor="message" className="text-lg font-bold text-gray-600">
-            Message
-          </label>
-          <textarea
-            id="message"
-            value={message}
-            rows={4}
-            placeholder="Your Message"
-            onChange={onInputChange}
-            minLength={3}
-            required
-            className="resize-none rounded-md border border-gray-300 p-2"
-          ></textarea>
-          {errors.message && (
-            <p className="animate-pulse text-fuchsia-600">{errors.message}</p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          onClick={onSubmit}
-          className="buttonNormal mx-auto"
+    <div className="mx-auto mt-[90px] text-center">
+      <div>
+        <ArrowBack />
+        <form
+          onSubmit={onSubmit}
+          className="mx-auto flex flex-col justify-center rounded-xl p-8 sm:w-[600px] gap-2"
         >
-          Submit
-        </button>
-      </form>
-      <ToastContainer theme="light" transition={Zoom} />
+          <div className="mb-5 rounded-full bg-violet-300 py-2 shadow-md shadow-gray-400">
+            <h2 className="font-exa text-sm text-gray-600 xs:text-xl">
+              Contact Us !
+            </h2>
+          </div>
+
+          {/* Full Name */}
+          <div className="relative flex flex-col">
+            <input
+              type="text"
+              id="fullName"
+              value={fullName}
+              placeholder="Full Name"
+              onChange={onInputChange}
+              minLength={3}
+              required
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
+            />
+            {errors.fullName && (
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
+                {errors.fullName}
+              </p>
+            )}
+          </div>
+
+          <div className="relative flex flex-col">
+            <input
+              type="email"
+              id="email"
+              value={email}
+              placeholder="Your E-mail"
+              onChange={onInputChange}
+              required
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
+            />
+            {errors.email && (
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
+                {errors.email}
+              </p>
+            )}
+          </div>
+          <div className="relative flex flex-col">
+            <input
+              type="text"
+              id="subject"
+              value={subject}
+              placeholder="Message Subject"
+              onChange={onInputChange}
+              minLength={3}
+              required
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base"
+            />
+            {errors.subject && (
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
+                {errors.subject}
+              </p>
+            )}
+          </div>
+          <div className="relative flex flex-col">
+            <textarea
+              id="message"
+              value={message}
+              rows={4}
+              placeholder="Your Message"
+              onChange={onInputChange}
+              minLength={3}
+              required
+              className="resize-none rounded-[30px] border border-gray-300 bg-white px-4 py-2 text-xs shadow-md shadow-gray-400 xs:text-base mb-8"
+            ></textarea>
+            {errors.message && (
+              <p className="absolute right-3 top-2 animate-pulse text-xs text-fuchsia-600 xs:text-base">
+                {errors.message}
+              </p>
+            )}
+          </div>
+          <button
+            type="submit"
+            onClick={onSubmit}
+            className="buttonNormal mx-auto mb-5"
+          >
+            Submit
+          </button>
+        </form>
+        <ToastContainer theme="light" transition={Zoom} />
+      </div>
     </div>
   );
 }

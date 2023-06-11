@@ -17,29 +17,33 @@ export default function ShoppingCart() {
     <>
       <div className="flex flex-col items-center justify-center text-4xl font-bold text-black">
         {productsCount === 0 ? (
-          <div className="flex h-screen items-center justify-center px-5 text-3xl md:text-5xl">
+          <div className=" flex h-screen items-center justify-center">
             <ArrowBack />
-            <h1>Your shopping cart is empty</h1>
+            <h1 className="z-10 mt-8 rounded-full px-2 py-1 text-center font-exa text-xl uppercase text-black">
+              <p>Your Shopping Cart is Empty</p>
+            </h1>
           </div>
         ) : (
           <>
-            <div className="z-10 m-2 mt-[70px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
-              <p>Your Cart</p>
+            <div className="container mx-auto mt-[110px] xs:mt-[80px]">
+              <h1 className="z-10 mx-auto mb-3 mt-8 max-w-[110px] rounded-full bg-black px-2 py-1 text-center font-exa text-xs font-semibold uppercase text-white xs:max-w-[140px] xs:text-base">
+                <p>Your Cart</p>
+              </h1>
             </div>
-            <div className="relative flex flex-col justify-center lg:items-center mb-[80px]">
+            <div className="relative mb-[80px] flex flex-col justify-center lg:items-center">
               <ArrowBack />
               {/* Checkout Label  */}
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="mb-4 flex flex-col items-center justify-between rounded-lg p-3 shadow-lg md:w-[500px] md:flex-row lg:w-[900px] xl:w-[1100px]"
+                  className="mb-6 flex max-w-sm flex-col items-center justify-between gap-2 rounded-lg p-3 shadow-lg md:max-w-xl md:flex-row"
                 >
                   {/* Image */}
                   <div className="relative">
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="m-3 h-[200px] w-[200px] rounded-lg object-cover shadow-md"
+                      className="m-3 h-[150px] w-[150px] rounded-lg object-cover shadow-md"
                     />
                     {/* Discount Overlay */}
                     {item.discountedPrice &&
@@ -54,21 +58,21 @@ export default function ShoppingCart() {
                         </div>
                       )}
                   </div>
-                  <div className="flex flex-col gap-4 md:w-1/2 lg:w-2/3 lg:flex-row lg:justify-around">
+                  <div className="flex flex-col gap-4 text-sm md:w-1/2 md:text-lg lg:w-2/3 lg:flex-row lg:justify-around">
                     {/* Title & Price */}
                     <div className="flex flex-col items-center">
-                      <h1 className="mb-4 border-b text-xl">{item.title}</h1>
+                      <h1 className="mb-4 border-b">{item.title}</h1>
 
                       {item.discountedPrice &&
                       item.discountedPrice < item.price ? (
-                        <div className="text-lg">
+                        <div className="">
                           <h2>{formatCurrency(item.discountedPrice)}</h2>
                           <h2 className="text-amber-600 line-through decoration-black">
                             {formatCurrency(item.price)}
                           </h2>
                         </div>
                       ) : (
-                        <h2 className="text-xl">
+                        <h2 className="">
                           {formatCurrency(item.discountedPrice)}
                         </h2>
                       )}
@@ -84,9 +88,7 @@ export default function ShoppingCart() {
                         </button>
                         {/* Quantity */}
                         <div className="mx-4 flex text-gray-500">
-                          <span className="text-2xl text-black">
-                            {item.quantity}
-                          </span>
+                          <span className=" text-black">{item.quantity}</span>
                         </div>
                         {/* Plus Button */}
                         <button
@@ -110,8 +112,8 @@ export default function ShoppingCart() {
                 </div>
               ))}
             </div>
-            <div className="fixed bottom-0 z-10 mx-4 h-[160px] w-full  bg-white py-2 text-center ">
-              <h1 className="border-y-2 border-gray-400 text-base py-2">
+            <div className="fixed bottom-0 z-10 h-[160px] w-full bg-white text-center ">
+              <h1 className="border-y-2 border-gray-400 py-2 text-base">
                 Total: {formatCurrency(getTotalCost())}
               </h1>
               <Link to="/checkout">

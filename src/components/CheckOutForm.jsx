@@ -209,9 +209,9 @@ export default function CheckOutForm() {
     <div className="mx-auto mt-[90px] text-center">
       <div className="">
         <ArrowBack />
-        <div className="z-10 m-2 mx-auto max-w-[150px] rounded-full bg-black px-2 py-1 text-center text-xs font-semibold uppercase text-white xs:text-base">
+        <h1 className="z-10 mx-auto mb-3 mt-8 max-w-[160px] rounded-full bg-black px-2 py-1 text-center font-exa text-xs font-semibold uppercase text-white xs:text-base">
           <p>Check Out</p>
-        </div>
+        </h1>
         <div>
           {items.map((item) => (
             <div
@@ -257,7 +257,7 @@ export default function CheckOutForm() {
             </div>
           ))}
         </div>
-        <div className="w-full mt-6">
+        <div className="mt-6 w-full">
           <h1 className="border-y-2 border-gray-400 py-2 text-base">
             Total: {formatCurrency(getTotalCost())}
           </h1>
