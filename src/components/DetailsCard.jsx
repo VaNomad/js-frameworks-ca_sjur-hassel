@@ -37,7 +37,7 @@ export default function DetailsCard({ data }) {
         </div>
 
         {/* Image */}
-        <div className="flex flex-col gap-6 p-4 md:flex-row">
+        <div className="flex flex-col gap-6 px-4 md:flex-row">
           <div className="relative m-3 mt-10 md:mx-auto">
             <img
               src={imageUrl}
@@ -144,7 +144,7 @@ export default function DetailsCard({ data }) {
                   </Link>
                   <Link to="/">
                     <div className="flex justify-center p-3">
-                      <button className="buttonNormal mb-8">Shop More</button>
+                      <button className="buttonNormal">Shop More</button>
                     </div>
                   </Link>
                 </>

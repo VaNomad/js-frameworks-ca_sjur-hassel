@@ -2,8 +2,11 @@
 import sjuriowhite from "../assets/sjuriowhite.png"
 import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai"
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const { pathname } = useLocation();
+  if (pathname === "/cart") return null;
   return (
     <footer className="my-10 p-4 font-karla text-sm">
       <div className="w-full rounded-xl bg-violet-500 p-5 text-white">
