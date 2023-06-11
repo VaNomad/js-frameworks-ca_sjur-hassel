@@ -42,10 +42,10 @@ export default function DetailsCard({ data }) {
             <img
               src={imageUrl}
               alt={title}
-              className="md:my-10 w-full p-6 md:flex md:items-center md:p-0 lg:max-w-sm"
+              className="md:my-10 w-full rounded-xl md:flex md:items-center lg:max-w-sm"
             />
             {discountedPrice && discountedPrice < price && (
-              <div className="absolute bottom-[10px] right-[10px] z-10 flex items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
+              <div className="absolute top-[-15px] md:top-5 left-[-15px] z-10 flex items-center rounded-full border border-lime-500 bg-lime-400 px-2 py-1 text-sm shadow-lg xs:text-base md:text-lg">
                 <BiMinus className="mr-1" />
                 {discountPercentage(discountedPrice, price)}%
               </div>
