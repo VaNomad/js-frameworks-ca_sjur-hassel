@@ -1,6 +1,7 @@
 // import sjurblue from "../assets/sjurioblue.png"
 import sjuriowhite from "../assets/sjuriowhite.png"
-import {AiOutlineGithub, AiOutlineLinkedin} from "react-icons/ai"
+import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai"
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -8,12 +9,13 @@ export default function Footer() {
       <div className="w-full rounded-xl bg-violet-500 p-5 text-white">
         <div className="flex flex-col items-center justify-around gap-3 md:flex-row md:gap-8">
           <p className="font-exa">© Sjur Hassel 2023</p>
-          <AiOutlineGithub size={20} href="https://github.com/VaNomad" />
+          <Link to={"https://github.com/VaNomad"} target="_blank">
+            <AiOutlineGithub size={20} />
+          </Link>
           <img src={sjuriowhite} alt="" className="w-[50px]" />
-          <AiOutlineLinkedin
-            size={20}
-            href="https://www.linkedin.com/in/sjurhassel/"
-          />
+          <Link to={"https://www.linkedin.com/in/sjurhassel/"} target="_blank">
+            <AiOutlineLinkedin size={20} />
+          </Link>
           <p>Built with React.js & TailwindCss</p>
         </div>
       </div>
