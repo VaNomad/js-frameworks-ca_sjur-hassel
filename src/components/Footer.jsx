@@ -2,7 +2,7 @@ import sjurblue from "../assets/sjurioblue.png"
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="my-10 p-4">
       <div className="w-full bg-violet-100 p-5">
         <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8">
           <img src={sjurblue} alt="" className="w-[50px]" />
