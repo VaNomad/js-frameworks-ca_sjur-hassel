@@ -1,4 +1,3 @@
-
 export function formatCurrency(number) {
   const roundedNumber = Math.round(number);
   const formattedCurrency = new Intl.NumberFormat("de-DE", {

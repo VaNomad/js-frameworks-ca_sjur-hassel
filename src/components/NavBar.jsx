@@ -5,13 +5,12 @@ import { useContext } from "react";
 
 export default function NavBar() {
   const cart = useContext(ShoppingCartContext);
-
-  // Move this variable into shoppingCartContext.jsx
   const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
   return (
     <>
       <nav className="fixed top-0 z-20 flex h-[80px] w-full items-center justify-between bg-white px-5 py-2 shadow-md shadow-gray-100 xs:h-[50px] font-karla">
+
         {/* Left Box */}
         <div className="h-full xs:w-6/12 lg:w-3/5">
           <ul className="h-full flex flex-col justify-around text-sm xs:flex-row xs:items-center lg:justify-around">
@@ -47,6 +46,7 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
+
         {/* Right Box */}
         <div className="flex h-full flex-col xs:justify-around xs:w-1/2 xs:flex-row-reverse">
           <div className="relative flex justify-end">
@@ -57,6 +57,7 @@ export default function NavBar() {
               <div className="overlay-number">{productsCount}</div>
             </Link>
           </div>
+
           {/* Logo */}
           <div className="">
             <Link to={"/"}>
@@ -70,7 +71,6 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-      {/* <Outlet /> */}
     </>
   );
 }

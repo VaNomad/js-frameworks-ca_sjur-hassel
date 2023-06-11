@@ -46,8 +46,7 @@ export default function Card({ products }) {
                     )}
                   </div>
                 </Link>
-              )
-            )}
+              ))}
           </div>
         </div>
       </div>

@@ -1,18 +1,14 @@
-// Imports —————————————————————————————————————————————————————
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-// import ProductList from "../api/ProductList";
 
-// Component —————————————————————————————————————————————————————
 export default function Search({onSearch}) {
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(-1);
   const navigate = useNavigate();
 
-  // Handlers
   const handleInputChange = (e) => {
     setSearch(e.target.value);
     onSearch(e.target.value);

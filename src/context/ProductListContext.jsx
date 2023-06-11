@@ -10,8 +10,6 @@ export function ProductListProvider({ children }) {
     setProducts,
   };
 
-  console.log(products)
-
   return (
     <ProductListContext.Provider value={productListValue}>
       {children}

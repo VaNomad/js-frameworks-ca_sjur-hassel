@@ -11,8 +11,6 @@ export default function SingleItem() {
   const [isError, setIsError] = useState(false);
 
   let { id } = useParams();
-  
-  console.log(id);
 
   useEffect(() => {
     async function getData() {
@@ -23,8 +21,6 @@ export default function SingleItem() {
         const url = `${ID_URL}${id}`;
         const response = await fetch(url);
         const json = await response.json();
-
-        console.log(json);
 
         setData(json);
       } catch (error) {
@@ -41,8 +37,6 @@ export default function SingleItem() {
   if (isLoading) return <Spinner />;
   if (!data) return <Spinner />;
   if (isError) return <LoadErr />;
-
- 
 
   return (
     <DetailsCard data={data}/>

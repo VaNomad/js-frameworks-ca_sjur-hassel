@@ -124,7 +124,7 @@ export default function CheckOutForm() {
       };
       console.log(formData);
 
-      // Clear form inputs
+      // Clears form inputs
       setFullName("");
       setEmail("");
       setAddress("");
@@ -135,8 +135,6 @@ export default function CheckOutForm() {
       setExpires("");
       setCvc("");
       cart.deleteAllFromCart();
-      
-      // Redirect to "/checkoutsuccess"
       navigate("/checkoutsuccess");
     }
   }
@@ -226,6 +224,7 @@ export default function CheckOutForm() {
                   className="m-1 h-[50px] w-[50px] rounded-lg object-cover shadow-md"
                 />
               </div>
+
               {/* Title & Price */}
               <div>
                 <h1 className="text-sm font-semibold">{item.title}</h1>
@@ -244,6 +243,7 @@ export default function CheckOutForm() {
                   </h2>
                 )}
               </div>
+
               {/* Trash Button */}
               <div>
                 <button
@@ -256,11 +256,15 @@ export default function CheckOutForm() {
             </div>
           ))}
         </div>
+
+        {/* Total */}
         <div className="mt-6 w-full">
           <h1 className="border-y-2 border-gray-400 py-2 font-karla text-xl font-bold text-gray-600">
             Total: {formatCurrency(getTotalCost())}
           </h1>
         </div>
+
+        {/* Form */}
         <form
           onSubmit={onSubmit}
           className="mx-auto flex flex-col justify-center rounded-xl p-8 sm:w-[600px] font-karla"
@@ -523,9 +527,12 @@ export default function CheckOutForm() {
           <button onClick={onSubmit} className="buttonCta mx-auto mb-8">
             Place Order
           </button>
+
+          {/* Back To Cart Button */}
           <Link to="/cart">
             <button className="buttonNormal mx-auto">Back To Cart</button>
           </Link>
+          
         </form>
       </div>
     </div>

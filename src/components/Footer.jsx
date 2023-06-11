@@ -1,4 +1,3 @@
-// import sjurblue from "../assets/sjurioblue.png"
 import sjuriowhite from "../assets/sjuriowhite.png"
 import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai"
 import { Link } from "react-router-dom";

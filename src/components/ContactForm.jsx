@@ -57,7 +57,7 @@ export default function ContactForm() {
         className: 'toastStyle'
       });
 
-      // Clear form inputs
+      // Clears form inputs
       setFullName("");
       setEmail("");
       setSubject("");
@@ -128,6 +128,7 @@ export default function ContactForm() {
             )}
           </div>
 
+          {/* Email */}
           <div className="relative flex flex-col">
             <input
               type="email"
@@ -144,6 +145,8 @@ export default function ContactForm() {
               </p>
             )}
           </div>
+
+          {/* Subject */}
           <div className="relative flex flex-col">
             <input
               type="text"
@@ -161,6 +164,8 @@ export default function ContactForm() {
               </p>
             )}
           </div>
+
+          {/* Message */}
           <div className="relative flex flex-col">
             <textarea
               id="message"
@@ -178,6 +183,8 @@ export default function ContactForm() {
               </p>
             )}
           </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
             onClick={onSubmit}
@@ -185,6 +192,7 @@ export default function ContactForm() {
           >
             Submit
           </button>
+          
         </form>
         <ToastContainer theme="light" transition={Zoom} />
       </div>
